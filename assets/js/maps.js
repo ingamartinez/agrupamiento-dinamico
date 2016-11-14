@@ -1,4 +1,6 @@
-var searchMap = null;
+var map_first = null;
+var map_second = null;
+var map_history = null;
 
 var lats_lng = [];
 
@@ -15,8 +17,8 @@ lats_lng[01] = new Array(10.3910485, -75.47942569999998)  // Cartagena, Colombia
 
 var marker=null;
 
-function map_initMap() {
-    searchMap = new google.maps.Map(document.getElementById('map'), {
+function initFirstMap() {
+    map_first = new google.maps.Map(document.getElementById('map-first'), {
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         center: new google.maps.LatLng(lats_lng[01][0], lats_lng[01][1]),
         // center: new google.maps.LatLng(-33.92, 151.25),
@@ -28,15 +30,56 @@ function map_initMap() {
         position: new google.maps.LatLng(10.390731913454, -75.480691702655),
         title:"Marcador 1"
     });
-    marker.setMap(searchMap);
+    marker.setMap(map_first);
 
     marker = new google.maps.Marker({
         position: new google.maps.LatLng(10.392082680481, -75.48084190636),
         title:"Marcador 2"
     });
-    marker.setMap(searchMap);
+    marker.setMap(map_first);
 }
 
-jQuery(document).ready(function() {
+function initSecondMap() {
+    map_second = new google.maps.Map(document.getElementById('map-second'), {
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        center: new google.maps.LatLng(lats_lng[01][0], lats_lng[01][1]),
+        // center: new google.maps.LatLng(-33.92, 151.25),
+        zoom: 16,
+        scrollwheel: false
+    });
 
-});
+    marker = new google.maps.Marker({
+        position: new google.maps.LatLng(10.390731913454, -75.480691702655),
+        title:"Marcador 1"
+    });
+    marker.setMap(map_second);
+
+    marker = new google.maps.Marker({
+        position: new google.maps.LatLng(10.392082680481, -75.48084190636),
+        title:"Marcador 2"
+    });
+    marker.setMap(map_second);
+}
+
+function initHistoryMap() {
+    map_history = new google.maps.Map(document.getElementById('map-history'), {
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        center: new google.maps.LatLng(lats_lng[01][0], lats_lng[01][1]),
+        // center: new google.maps.LatLng(-33.92, 151.25),
+        zoom: 16,
+        scrollwheel: false
+    });
+
+    marker = new google.maps.Marker({
+        position: new google.maps.LatLng(10.390731913454, -75.480691702655),
+        title:"Marcador 1"
+    });
+    marker.setMap(map_history);
+
+    marker = new google.maps.Marker({
+        position: new google.maps.LatLng(10.392082680481, -75.48084190636),
+        title:"Marcador 2"
+    });
+    marker.setMap(map_history);
+}
+

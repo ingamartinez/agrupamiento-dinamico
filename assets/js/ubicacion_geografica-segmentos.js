@@ -223,8 +223,8 @@ $(document).ready(function () {
         Primer Mapa
      */
 
-    // function map_initMap() {
-    //     searchMap = new google.maps.Map(document.getElementById('map'), {
+    // function initFirstMap() {
+    //     map_first = new google.maps.Map(document.getElementById('map'), {
     //         mapTypeId: google.maps.MapTypeId.ROADMAP,
     //         center: new google.maps.LatLng(lats_lng[01][0], lats_lng[01][1]),
     //         // center: new google.maps.LatLng(-33.92, 151.25),
@@ -234,6 +234,6 @@ $(document).ready(function () {
     //     });
     // }
     //
-    // map_initMap();
+    // initFirstMap();
 
 });

@@ -66,12 +66,14 @@
                                 </select>
                                 <div id="segmentos_ubicacion_chart">
                                     <canvas id="chart-segmentos" width="600" height="200"></canvas>
+                                    <h2 class="text-center">Anterior</h2>
                                     <canvas id="chart-segmentos-anterior" width="600" height="200"></canvas>
                                 </div>
                                 <div id="segmentos-ubicacion-map" class="hidden">
-                                    <div id="map" style="width:100%; height:500px;position: relative; overflow: hidden; background-color: rgb(229, 227, 223);">
+                                    <div id="map-first" style="width:100%; height:300px;position: relative; overflow: hidden; background-color: rgb(229, 227, 223);">
                                     </div>
-                                    <div id="map-geo" style="position: relative; overflow: hidden; background-color: rgb(229, 227, 223);">
+                                    <h2 class="text-center">Anterior</h2>
+                                    <div id="map-second" style="width:100%; height:300px;position: relative; overflow: hidden; background-color: rgb(229, 227, 223);">
                                     </div>
 
                                 </div>
@@ -103,12 +105,13 @@
                                     </select>
                                 </div>
 
-                                <div class="segmentos-ubicacion-chart-historial">
+                                <div id="segmentos-ubicacion-chart-historial">
                                     <canvas id="chart-segmentos-historial" width="600" height="200"></canvas>
                                 </div>
 
-                                <div class="segmentos-ubicacion-map-historial hidden">
-                                    <!-- MAPA -->
+                                <div id="segmentos-ubicacion-map-historial" class="hidden">
+                                    <div id="map-history" style="width:100%; height:300px;position: relative; overflow: hidden; background-color: rgb(229, 227, 223);">
+                                    </div>
                                 </div>
                             </div>
                         </form>
