@@ -1,3 +1,13 @@
 .with-auto{
     width:auto !important;
 }
+
+#google-map{
+    display: inline;
+    float: left;
+    width: 100%;
+}
+
+#google-map iframe {
+    margin-bottom: -5px;
+}
