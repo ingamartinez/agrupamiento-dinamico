@@ -36,7 +36,9 @@ $('#select-segmentos-ubicacion').on('change', function () {
             }
         );
 
-    } else if (this.value === "ubicacion-geografica") {
+    }
+
+    if (this.value === "ubicacion-geografica") {
 
         $('#segmentos-ubicacion-map').removeClass('hidden');
         $('#segmentos-ubicacion-map-historial').removeClass('hidden');
@@ -71,7 +73,5 @@ $('#select-segmentos-ubicacion').on('change', function () {
                 initHistoryMap()
             }
         );
-
-
     }
 });

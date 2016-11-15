@@ -1,85 +1,183 @@
-var map_first = null;
-var map_second = null;
-var map_history = null;
+$(document).ready(function () {
 
-var lats_lng = [];
+    initFirstMap();
+    initSecondMap();
+    initHistoryMap();
 
-lats_lng[18] = new Array(19.24647, -99.10135); // MÃ©xico
-lats_lng[34] = new Array(40.41678, -3.70379), // EspaÃ±a
-lats_lng[51] = new Array(-12.04637, -77.04279), // PerÃº
-lats_lng[54] = new Array(-34.60372, -58.38159), // Argentina
-lats_lng[593] = new Array(-0.18065, -78.46784), // Ecuador
-lats_lng[595] = new Array(-25.28220, -57.63510), // Paraguay
-lats_lng[172] = new Array(12.13639, -86.25139), // Nicaragua
-lats_lng[507] = new Array(8.98333, -79.51667), // PanamÃ¡
-lats_lng[57] = new Array(4.59806, -74.07583)  // Colombia
-lats_lng[01] = new Array(10.3910485, -75.47942569999998)  // Cartagena, Colombia
 
-var marker=null;
+});
 
 function initFirstMap() {
+    var map_first=null;
+    var searchMarkers = [];
+    var infoWindow = new google.maps.InfoWindow();
+
     map_first = new google.maps.Map(document.getElementById('map-first'), {
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        center: new google.maps.LatLng(lats_lng[01][0], lats_lng[01][1]),
+        center: new google.maps.LatLng(10.3910485, -75.47942569999998),
         // center: new google.maps.LatLng(-33.92, 151.25),
-        zoom: 16,
+        zoom: 3,
         scrollwheel: false
     });
 
-    marker = new google.maps.Marker({
-        position: new google.maps.LatLng(10.390731913454, -75.480691702655),
-        title:"Marcador 1"
-    });
-    marker.setMap(map_first);
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/firstChart',
+        success: function (data) {
+            for (var newData in data){
+                data= data[newData].datasets;
+            }
 
-    marker = new google.maps.Marker({
-        position: new google.maps.LatLng(10.392082680481, -75.48084190636),
-        title:"Marcador 2"
+            for (var index in data){
+                // console.log(data[index].geo.latitude);
+                    var pos=new google.maps.LatLng(data[index].geo.latitude,data[index].geo.longitude);
+                    var name=data[index].label;
+                    var address=data[index].address;
+                    createMarker(pos,name,address);
+            }
+
+        }
     });
-    marker.setMap(map_first);
+
+    function createMarker(latlng, label, address) {
+        var html = "<b>" + label + "</b> <br/>" + address;
+        var marker = new google.maps.Marker({
+            map: map_first,
+            position: latlng,
+            animation: google.maps.Animation.DROP,
+            //draggable: true,
+
+            //map_icon_label: '<span class="map-icon map-icon-insurance-agency"></span>'
+            // map_icon_label: '<span class="fa fa-phone"></span>'
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+            infoWindow.setContent(html);
+            infoWindow.open(map_first, marker);
+        });
+
+        if (searchMarkers != null) {
+            searchMarkers.push(marker);
+        }else{
+            searchMarkers = new Array(marker);
+        }
+    }
+
+
+
 }
 
 function initSecondMap() {
+    var map_second=null;
+    var searchMarkers = [];
+    var marker=null;
+    var infoWindow = new google.maps.InfoWindow();
+
     map_second = new google.maps.Map(document.getElementById('map-second'), {
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        center: new google.maps.LatLng(lats_lng[01][0], lats_lng[01][1]),
+        center: new google.maps.LatLng(10.3910485, -75.47942569999998),
         // center: new google.maps.LatLng(-33.92, 151.25),
-        zoom: 16,
+        zoom: 3,
         scrollwheel: false
     });
 
-    marker = new google.maps.Marker({
-        position: new google.maps.LatLng(10.390731913454, -75.480691702655),
-        title:"Marcador 1"
-    });
-    marker.setMap(map_second);
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/secondChart',
+        success: function (data) {
+            for (var newData in data){
+                data= data[newData].datasets;
+            }
 
-    marker = new google.maps.Marker({
-        position: new google.maps.LatLng(10.392082680481, -75.48084190636),
-        title:"Marcador 2"
+            for (var index in data){
+                // console.log(data[index].geo.latitude);
+                var pos=new google.maps.LatLng(data[index].geo.latitude,data[index].geo.longitude);
+                var name=data[index].label;
+                var address=data[index].address;
+                createMarker(pos,name,address);
+            }
+
+        }
     });
-    marker.setMap(map_second);
+
+    function createMarker(latlng, label, address) {
+        var html = "<b>" + label + "</b> <br/>" + address;
+        var marker = new google.maps.Marker({
+            map: map_second,
+            position: latlng,
+            animation: google.maps.Animation.DROP,
+            //draggable: true,
+
+            //map_icon_label: '<span class="map-icon map-icon-insurance-agency"></span>'
+            // map_icon_label: '<span class="fa fa-phone"></span>'
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+            infoWindow.setContent(html);
+            infoWindow.open(map_second, marker);
+        });
+
+        if (searchMarkers != null) {
+            searchMarkers.push(marker);
+        }else{
+            searchMarkers = new Array(marker);
+        }
+    }
 }
 
 function initHistoryMap() {
+    var map_history=null;
+    var searchMarkers = [];
+    var marker=null;
+    var infoWindow = new google.maps.InfoWindow();
+
     map_history = new google.maps.Map(document.getElementById('map-history'), {
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        center: new google.maps.LatLng(lats_lng[01][0], lats_lng[01][1]),
+        center: new google.maps.LatLng(10.3910485, -75.47942569999998),
         // center: new google.maps.LatLng(-33.92, 151.25),
-        zoom: 16,
+        zoom: 3,
         scrollwheel: false
     });
 
-    marker = new google.maps.Marker({
-        position: new google.maps.LatLng(10.390731913454, -75.480691702655),
-        title:"Marcador 1"
-    });
-    marker.setMap(map_history);
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/historyChart',
+        success: function (data) {
+            for (var newData in data){
+                data= data[newData].datasets;
+            }
 
-    marker = new google.maps.Marker({
-        position: new google.maps.LatLng(10.392082680481, -75.48084190636),
-        title:"Marcador 2"
+            for (var index in data){
+                // console.log(data[index].geo.latitude);
+                var pos=new google.maps.LatLng(data[index].geo.latitude,data[index].geo.longitude);
+                var name=data[index].label;
+                var address=data[index].address;
+                createMarker(pos,name,address);
+            }
+
+        }
     });
-    marker.setMap(map_history);
+
+    function createMarker(latlng, label, address) {
+        var html = "<b>" + label + "</b> <br/>" + address;
+        var marker = new google.maps.Marker({
+            map: map_history,
+            position: latlng,
+            animation: google.maps.Animation.DROP,
+            //draggable: true,
+
+            //map_icon_label: '<span class="map-icon map-icon-insurance-agency"></span>'
+            // map_icon_label: '<span class="fa fa-phone"></span>'
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+            infoWindow.setContent(html);
+            infoWindow.open(map_history, marker);
+        });
+
+        if (searchMarkers != null) {
+            searchMarkers.push(marker);
+        }else{
+            searchMarkers = new Array(marker);
+        }
+    }
+
 }
 

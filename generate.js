@@ -8,50 +8,72 @@ module.exports = function () {
 
 
     return {
-        datasets: _.times(5,function (n) {
+
+        firstChart: _.times(1,function (n) {
             return {
-                id:n,
-                label: fakerator.lorem.sentence(),
-                data: _.times(3,function (n) {
-                    return {
-                        x:fakerator.random.number(100),
-                        y:fakerator.random.number(100),
-                        r:fakerator.random.number(100)/20
+                datasets:_.times(5,function (n) {
+                    return{
+                        id: n,
+                        label: fakerator.lorem.word()+' - '+fakerator.lorem.word(),
+                        data: _.times(1,function (n) {
+                            return {
+                                x:fakerator.random.number(50,100),
+                                y:fakerator.random.number(50,100),
+                                r:fakerator.random.number(50,100)/4
+                            }
+                        }),
+                        backgroundColor: '#'+fakerator.random.hex(6),
+                        geo :fakerator.address.geoLocation(),
+                        address: fakerator.address.country()+' '+fakerator.address.city()+' '+fakerator.address.street()
+
                     }
-                }),
-                backgroundColor: '#'+fakerator.random.hex(6)
+                })
+
+            }
+        }),
+        secondChart: _.times(1,function (n) {
+            return {
+                datasets:_.times(5,function (n) {
+                    return{
+                        id: n,
+                        label: fakerator.lorem.word()+' - '+fakerator.lorem.word(),
+                        data: _.times(1,function (n) {
+                            return {
+                                x:fakerator.random.number(50,100),
+                                y:fakerator.random.number(50,100),
+                                r:fakerator.random.number(50,100)/4
+                            }
+                        }),
+                        backgroundColor: '#'+fakerator.random.hex(6),
+                        geo :fakerator.address.geoLocation(),
+                        address: fakerator.address.country()+' '+fakerator.address.city()+' '+fakerator.address.street()
+                    }
+                })
+
+            }
+        }),
+        historyChart: _.times(1,function (n) {
+            return {
+                datasets:_.times(5,function (n) {
+                    return{
+                        id: n,
+                        label: fakerator.lorem.word()+' - '+fakerator.lorem.word(),
+                        data: _.times(1,function (n) {
+                            return {
+                                x:fakerator.random.number(50,100),
+                                y:fakerator.random.number(50,100),
+                                r:fakerator.random.number(50,100)/4
+                            }
+                        }),
+                        backgroundColor: '#'+fakerator.random.hex(6),
+                        geo :fakerator.address.geoLocation(),
+                        address: fakerator.address.country()+' '+fakerator.address.city()+' '+fakerator.address.street()
+                    }
+                })
+
             }
         })
 
     }
 
 };
-/*
-datasets: [
-    {
-        label: 'First Dataset',
-        data: [
-            {
-                x: 20,
-                y: 30,
-                r: 15
-            }
-        ],
-        backgroundColor:"#FF6384",
-        hoverBackgroundColor: "#FF6384"
-    },
-    {
-        label: 'Second Dataset',
-        data: [
-            {
-                x: 40,
-                y: 10,
-                r: 10
-            }
-        ],
-        backgroundColor:"#DFC",
-        hoverBackgroundColor: "#DFC"
-    }
-]
-
-*/
