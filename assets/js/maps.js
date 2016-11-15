@@ -1,8 +1,8 @@
 $(document).ready(function () {
 
-    initFirstMap();
-    initSecondMap();
-    initHistoryMap();
+    // initFirstMap();
+    // initSecondMap();
+    // initHistoryMap();
 
 
 });
@@ -43,12 +43,7 @@ function initFirstMap() {
         var html = "<b>" + label + "</b> <br/>" + address;
         var marker = new google.maps.Marker({
             map: map_first,
-            position: latlng,
-            animation: google.maps.Animation.DROP,
-            //draggable: true,
-
-            //map_icon_label: '<span class="map-icon map-icon-insurance-agency"></span>'
-            // map_icon_label: '<span class="fa fa-phone"></span>'
+            position: latlng
         });
         google.maps.event.addListener(marker, 'click', function() {
             infoWindow.setContent(html);
@@ -103,12 +98,7 @@ function initSecondMap() {
         var html = "<b>" + label + "</b> <br/>" + address;
         var marker = new google.maps.Marker({
             map: map_second,
-            position: latlng,
-            animation: google.maps.Animation.DROP,
-            //draggable: true,
-
-            //map_icon_label: '<span class="map-icon map-icon-insurance-agency"></span>'
-            // map_icon_label: '<span class="fa fa-phone"></span>'
+            position: latlng
         });
         google.maps.event.addListener(marker, 'click', function() {
             infoWindow.setContent(html);
@@ -160,12 +150,7 @@ function initHistoryMap() {
         var html = "<b>" + label + "</b> <br/>" + address;
         var marker = new google.maps.Marker({
             map: map_history,
-            position: latlng,
-            animation: google.maps.Animation.DROP,
-            //draggable: true,
-
-            //map_icon_label: '<span class="map-icon map-icon-insurance-agency"></span>'
-            // map_icon_label: '<span class="fa fa-phone"></span>'
+            position: latlng
         });
         google.maps.event.addListener(marker, 'click', function() {
             infoWindow.setContent(html);

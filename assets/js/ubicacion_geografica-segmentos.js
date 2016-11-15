@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     renderFirstChart();
     renderSecondChart();
-    renderHistoryChart()
+    renderHistoryChart();
 
     $.dobPicker({
         daySelector: '#segmentos-select-dia',
