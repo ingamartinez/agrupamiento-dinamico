@@ -1,0 +1,25 @@
+{
+  "name": "agrupamiento-dinamico",
+  "version": "1.0.0",
+  "description": "Agrupamiento Dinamico",
+  "main": "generate.js",
+  "dependencies": {
+    "fakerator": "^0.3.0",
+    "lodash": "^4.17.0",
+    "faker": "^3.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ingamartinez/agrupamiento-dinamico.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ingamartinez/agrupamiento-dinamico/issues"
+  },
+  "homepage": "https://github.com/ingamartinez/agrupamiento-dinamico#readme"
+}
