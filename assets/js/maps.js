@@ -1,9 +1,5 @@
 $(document).ready(function () {
 
-    // initFirstMap();
-    // initSecondMap();
-    // initHistoryMap();
-
 
 });
 
@@ -24,22 +20,20 @@ function initFirstMap() {
         type: 'GET',
         url: 'http://localhost:3000/firstChart',
         success: function (data) {
-            for (var newData in data){
-                data= data[newData].datasets;
-            }
 
             for (var index in data){
                 // console.log(data[index].geo.latitude);
                     var pos=new google.maps.LatLng(data[index].geo.latitude,data[index].geo.longitude);
                     var name=data[index].label;
                     var address=data[index].address;
-                    createMarker(pos,name,address);
+                    var id=data[index].id
+                    createMarker(pos,name,address,id);
             }
 
         }
     });
 
-    function createMarker(latlng, label, address) {
+    function createMarker(latlng, label, address,id) {
         var html = "<b>" + label + "</b> <br/>" + address;
         var marker = new google.maps.Marker({
             map: map_first,
@@ -48,6 +42,7 @@ function initFirstMap() {
         google.maps.event.addListener(marker, 'click', function() {
             infoWindow.setContent(html);
             infoWindow.open(map_first, marker);
+            console.log(id);
         });
 
         if (searchMarkers != null) {
@@ -56,9 +51,6 @@ function initFirstMap() {
             searchMarkers = new Array(marker);
         }
     }
-
-
-
 }
 
 function initSecondMap() {
@@ -79,9 +71,7 @@ function initSecondMap() {
         type: 'GET',
         url: 'http://localhost:3000/secondChart',
         success: function (data) {
-            for (var newData in data){
-                data= data[newData].datasets;
-            }
+
 
             for (var index in data){
                 // console.log(data[index].geo.latitude);
@@ -131,9 +121,7 @@ function initHistoryMap() {
         type: 'GET',
         url: 'http://localhost:3000/historyChart',
         success: function (data) {
-            for (var newData in data){
-                data= data[newData].datasets;
-            }
+
 
             for (var index in data){
                 // console.log(data[index].geo.latitude);
@@ -155,6 +143,7 @@ function initHistoryMap() {
         google.maps.event.addListener(marker, 'click', function() {
             infoWindow.setContent(html);
             infoWindow.open(map_history, marker);
+            console.log('algo');
         });
 
         if (searchMarkers != null) {

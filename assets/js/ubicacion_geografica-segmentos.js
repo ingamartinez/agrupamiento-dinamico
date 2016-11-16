@@ -1,7 +1,6 @@
 /**
  * Created by ingam on 13/11/2016.
  */
-
 $(document).ready(function () {
 
     renderFirstChart();
@@ -15,24 +14,21 @@ $(document).ready(function () {
 
         dayDefault: 'Día',
         monthDefault: 'Mes',
-        yearDefault: 'Año',
-
-
+        yearDefault: 'Año'
     });
-
 
 });
 
 function renderFirstChart() {
 
+    var firstChartData=null;
+
     $.ajax({
         type: 'GET',
         url: 'http://localhost:3000/firstChart',
         success: function (data) {
-            for (var newData in data){
-                data= data[newData];
-            }
             renderChart(data);
+            firstChartData=data;
         }
     });
 
@@ -43,7 +39,9 @@ function renderFirstChart() {
         //Crear la primera gráfica
         var chartSegmentos = new Chart(ctx_segmentos,{
             type: 'bubble',
-            data: data,
+            data: {
+                datasets:data
+            },
             options: {
                 elements: {
                     points: {
@@ -56,26 +54,29 @@ function renderFirstChart() {
 
         //Capturar el index del primer Dataset que fue seleccionado en la PRIMERA grafica
         //Utilizado para poder compararlo con el objeto que llegue por la petición AJAX
-        $("#chart-segmentos").click(function(e) {
+        ctx_segmentos.click(function(e) {
             var activePoints = chartSegmentos.getDatasetAtEvent(e);
 //            console.log(activePoints);
             if (activePoints.length > 0) {
-                var index = activePoints[0]["_datasetIndex"];
-                console.log(index);
+                var datasetIndex = activePoints[0]["_datasetIndex"];
+                firstChartData.forEach(function (chartData,chartDataIndex) {
+                    if (chartDataIndex === datasetIndex){
+                        console.log(chartData);
+                    }
+                })
             }
         });
     }
 }
 
 function renderSecondChart() {
+    var secondChartData=null;
     $.ajax({
         type: 'GET',
         url: 'http://localhost:3000/secondChart',
         success: function (data) {
-            for (var newData in data){
-                data= data[newData];
-            }
             renderChart(data);
+            secondChartData=data;
         }
     });
     /*
@@ -89,7 +90,9 @@ function renderSecondChart() {
         //Crear la SegundaGráfica
         var chartSegmentosAnterior = new Chart(ctx_segmentos_anterior,{
             type: 'bubble',
-            data: data,
+            data: {
+                datasets:data
+            },
             options: {
                 elements: {
                     points: {
@@ -102,12 +105,16 @@ function renderSecondChart() {
 
         //Capturar el index del primer Dataset que fue seleccionado en la SEGUNDA grafica
         //Utilizado para poder compararlo con el objeto que llegue por la petición AJAX
-        $("#chart-segmentos-anterior").click(function(e) {
+        ctx_segmentos_anterior.click(function(e) {
             var activePoints = chartSegmentosAnterior.getDatasetAtEvent(e);
 //            console.log(activePoints);
             if (activePoints.length > 0) {
-                var index = activePoints[0]["_datasetIndex"];
-                console.log(index);
+                var datasetIndex = activePoints[0]["_datasetIndex"];
+                secondChartData.forEach(function (chartData,chartDataIndex) {
+                    if (chartDataIndex === datasetIndex){
+                        console.log(chartData);
+                    }
+                })
             }
         });
     }
@@ -116,27 +123,35 @@ function renderSecondChart() {
 }
 
 function renderHistoryChart() {
+    var historyChartData=null;
+
     $.ajax({
         type: 'GET',
+        data:{
+            dia:$('#segmentos-select-dia').val(),
+            mes:$('#segmentos-select-mes').val(),
+            anio:$('#segmentos-select-año').val()
+        },
         url: 'http://localhost:3000/historyChart',
         success: function (data) {
-            for (var newData in data){
-                data= data[newData];
-            }
             renderChart(data);
+            historyChartData=data;
         }
     });
     /*
      Gráfica Historial
      */
     function renderChart(data) {
+
         //Capturar el canvas de la grafica historal
         var ctx_segmentos_historial = $('#chart-segmentos-historial');
 
         //Crear la Gráfica Historial
         var chartSegmentosHistorial = new Chart(ctx_segmentos_historial,{
             type: 'bubble',
-            data: data,
+            data: {
+                datasets:data
+            },
             options: {
                 elements: {
                     points: {
@@ -149,12 +164,19 @@ function renderHistoryChart() {
 
         //Capturar el index del primer Dataset que fue seleccionado en la grafica HISTORIAL
         //Utilizado para poder compararlo con el objeto que llegue por la petición AJAX
-        $("#chart-segmentos-historial").click(function(e) {
+        ctx_segmentos_historial.unbind( "click" );
+        ctx_segmentos_historial.off( "click" );
+
+        ctx_segmentos_historial.on('click',function(e) {
             var activePoints = chartSegmentosHistorial.getDatasetAtEvent(e);
 //            console.log(activePoints);
             if (activePoints.length > 0) {
-                var index = activePoints[0]["_datasetIndex"];
-                console.log(index);
+                var datasetIndex = activePoints[0]["_datasetIndex"];
+                historyChartData.forEach(function (chartData,chartDataIndex) {
+                    if (chartDataIndex === datasetIndex){
+                        console.log(chartData);
+                    }
+                })
             }
         });
     }

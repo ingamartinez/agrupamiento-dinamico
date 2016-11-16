@@ -2,7 +2,9 @@
  * Created by ingam on 13/11/2016.
  */
 
-$('#select-segmentos-ubicacion').on('change', function () {
+var select_segmentos_ubicacion=$('#select-segmentos-ubicacion');
+
+select_segmentos_ubicacion.on('change', function () {
     var animationName = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
 
     var segmentos_ubicacion_chart =             $('#segmentos_ubicacion_chart');
@@ -84,5 +86,15 @@ $('#select-segmentos-ubicacion').on('change', function () {
                 initHistoryMap()
             }
         );
+    }
+});
+
+$('#segmentos-button-send').on('click',function () {
+    if(select_segmentos_ubicacion.val()==='segmentos'){
+        renderHistoryChart();
+    }else
+
+    if(select_segmentos_ubicacion.val()==='ubicacion-geografica'){
+        initHistoryMap();
     }
 });
