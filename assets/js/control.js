@@ -53,7 +53,7 @@ select_segmentos_ubicacion.on('change', function () {
     if (this.value === "ubicacion-geografica") {
 
         segmentos_ubicacion_map.removeClass('hidden');
-        $('#segmentos-ubicacion-map-historial').removeClass('hidden');
+        segmentos_ubicacion_map_historial.removeClass('hidden');
 
         segmentos_ubicacion_map.addClass('animated bounceInRight').one(animationName,
             function () {
@@ -61,7 +61,7 @@ select_segmentos_ubicacion.on('change', function () {
             }
         );
 
-        $('#segmentos-ubicacion-map-historial').addClass('animated bounceInRight').one(animationName,
+        segmentos_ubicacion_map_historial.addClass('animated bounceInRight').one(animationName,
             function () {
                 $(this).removeClass('animated bounceInRight');
             }
