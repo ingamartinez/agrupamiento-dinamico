@@ -98,3 +98,4 @@ $('#segmentos-button-send').on('click',function () {
         initHistoryMap();
     }
 });
+

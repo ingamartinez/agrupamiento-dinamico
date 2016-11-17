@@ -53,7 +53,7 @@
 </nav>
 
 <div class="container container-fluid">
-    <div class="container-segmentos-ubicacion">
+    <div class="container-segmentos-ubicacion hidden">
         <div class="row">
             <div class="col-lg-10 col-lg-offset-2">
                 <div class="panel panel-default">
@@ -78,6 +78,91 @@
 
                                 </div>
                             </div>
+
+
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+
+                    <div class="panel-body">
+                        <h3 class="center-block">Historial</h3>
+                        <form action="#">
+                            <div class="form-group">
+                                <div class="col-lg-3">
+                                    <select class="form-control with-auto center-block" id="segmentos-select-dia">
+
+                                    </select>
+                                </div>
+                                <div class="col-lg-3">
+                                    <select class="form-control with-auto center-block" id="segmentos-select-mes">
+
+                                    </select>
+                                </div>
+                                <div class="col-lg-3">
+                                    <select class="form-control with-auto center-block" id="segmentos-select-año">
+
+                                    </select>
+                                </div>
+                                <div class="col-lg-3">
+                                    <button type="button" id="segmentos-button-send" class="btn btn-primary"> Buscar </button>
+                                </div>
+
+                                <div id="segmentos-ubicacion-chart-historial">
+                                    <canvas id="chart-segmentos-historial" width="600" height="200"></canvas>
+                                </div>
+
+                                <div id="segmentos-ubicacion-map-historial" class="hidden">
+                                    <div id="map-history" style="width:100%; height:300px;position: relative; overflow: hidden; background-color: rgb(229, 227, 223);">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="container-detalle-grafica">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <div class="form-group">
+                            <select class="form-control with-auto center-block" id="select-detalle-grafica">
+                                <option value="conductual">Conductual</option>
+                                <option value="demogafica">Demogafica</option>
+                                <option value="psicografia">Psicografia</option>
+                            </select>
+                            <select class="form-control with-auto center-block" id="select-conductuales">
+                                <option value="segmentos">Segmentos</option>
+                                <option value="usuarios">usuarios</option>
+                            </select>
+                            <select class="form-control with-auto center-block" id="select-psicografia">
+                                <option value="personalidad">Personalidad</option>
+                                <option value="estilo-vida">Estilo de Vida</option>
+                                <option value="valores">Valores</option>
+                                <option value="clase-social">Clase Social</option>
+                            </select>
+
+                            <div id="segmentos_ubicacion_chart">
+                                <canvas id="chart-segmentos" width="600" height="200"></canvas>
+                                <h2 class="text-center">Anterior</h2>
+                                <canvas id="chart-segmentos-anterior" width="600" height="200"></canvas>
+                            </div>
+                            <div id="segmentos-ubicacion-map" class="hidden">
+                                <div id="map-first" style="width:100%; height:300px;position: relative; overflow: hidden; background-color: rgb(229, 227, 223);">
+                                </div>
+                                <h2 class="text-center">Anterior</h2>
+                                <div id="map-second" style="width:100%; height:300px;position: relative; overflow: hidden; background-color: rgb(229, 227, 223);">
+                                </div>
+
+                            </div>
+                        </div>
 
 
                     </div>
