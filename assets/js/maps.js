@@ -120,6 +120,11 @@ function initHistoryMap() {
     $.ajax({
         type: 'GET',
         url: 'http://localhost:3000/historyChart',
+        data:{
+            dia:$('#segmentos-select-dia').val(),
+            mes:$('#segmentos-select-mes').val(),
+            anio:$('#segmentos-select-año').val()
+        },
         success: function (data) {
 
 
