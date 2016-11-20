@@ -5,7 +5,7 @@
 var select_segmentos_ubicacion=$('#select-segmentos-ubicacion');
 
 select_segmentos_ubicacion.on('change', function () {
-    var animationName = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+    var animationName = 'webkitAnimationEnd mozAnimationEnd msAnimationEnd oAnimationEnd animationend';
 
     var segmentos_ubicacion_chart =             $('#segmentos_ubicacion_chart');
     var segmentos_ubicacion_chart_historial=    $('#segmentos-ubicacion-chart-historial');
@@ -99,3 +99,6 @@ $('#segmentos-button-send').on('click',function () {
     }
 });
 
+function detalleGrafica(id){
+    console.log(id);
+}

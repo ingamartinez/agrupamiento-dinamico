@@ -61,7 +61,7 @@ function renderFirstChart() {
                 var datasetIndex = activePoints[0]["_datasetIndex"];
                 firstChartData.forEach(function (chartData,chartDataIndex) {
                     if (chartDataIndex === datasetIndex){
-                        console.log(chartData);
+                        detalleGrafica(chartData.id);
                     }
                 })
             }
@@ -112,7 +112,7 @@ function renderSecondChart() {
                 var datasetIndex = activePoints[0]["_datasetIndex"];
                 secondChartData.forEach(function (chartData,chartDataIndex) {
                     if (chartDataIndex === datasetIndex){
-                        console.log(chartData);
+                        detalleGrafica(chartData.id);
                     }
                 })
             }
@@ -174,11 +174,10 @@ function renderHistoryChart() {
                 var datasetIndex = activePoints[0]["_datasetIndex"];
                 historyChartData.forEach(function (chartData,chartDataIndex) {
                     if (chartDataIndex === datasetIndex){
-                        console.log(chartData);
+                        detalleGrafica(chartData.id);
                     }
                 })
             }
         });
     }
-
 }

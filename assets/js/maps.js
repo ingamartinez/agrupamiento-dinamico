@@ -27,13 +27,13 @@ function initFirstMap() {
                     var name=data[index].label;
                     var address=data[index].address;
                     var id=data[index].id
-                    createMarker(pos,name,address,id);
+                    createMarker(pos,name,address,data[index]);
             }
 
         }
     });
 
-    function createMarker(latlng, label, address,id) {
+    function createMarker(latlng, label, address,data) {
         var html = "<b>" + label + "</b> <br/>" + address;
         var marker = new google.maps.Marker({
             map: map_first,
@@ -42,7 +42,7 @@ function initFirstMap() {
         google.maps.event.addListener(marker, 'click', function() {
             infoWindow.setContent(html);
             infoWindow.open(map_first, marker);
-            console.log(id);
+            detalleGrafica(data.id);
         });
 
         if (searchMarkers != null) {
@@ -78,13 +78,13 @@ function initSecondMap() {
                 var pos=new google.maps.LatLng(data[index].geo.latitude,data[index].geo.longitude);
                 var name=data[index].label;
                 var address=data[index].address;
-                createMarker(pos,name,address);
+                createMarker(pos,name,address,data[index]);
             }
 
         }
     });
 
-    function createMarker(latlng, label, address) {
+    function createMarker(latlng, label, address,data) {
         var html = "<b>" + label + "</b> <br/>" + address;
         var marker = new google.maps.Marker({
             map: map_second,
@@ -93,6 +93,7 @@ function initSecondMap() {
         google.maps.event.addListener(marker, 'click', function() {
             infoWindow.setContent(html);
             infoWindow.open(map_second, marker);
+            detalleGrafica(data.id);
         });
 
         if (searchMarkers != null) {
@@ -133,13 +134,13 @@ function initHistoryMap() {
                 var pos=new google.maps.LatLng(data[index].geo.latitude,data[index].geo.longitude);
                 var name=data[index].label;
                 var address=data[index].address;
-                createMarker(pos,name,address);
+                createMarker(pos,name,address,data[index]);
             }
 
         }
     });
 
-    function createMarker(latlng, label, address) {
+    function createMarker(latlng, label, address, data) {
         var html = "<b>" + label + "</b> <br/>" + address;
         var marker = new google.maps.Marker({
             map: map_history,
@@ -148,7 +149,7 @@ function initHistoryMap() {
         google.maps.event.addListener(marker, 'click', function() {
             infoWindow.setContent(html);
             infoWindow.open(map_history, marker);
-            console.log('algo');
+            detalleGrafica(data.id);
         });
 
         if (searchMarkers != null) {
