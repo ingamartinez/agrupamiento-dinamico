@@ -22,7 +22,11 @@ module.exports = function () {
                 }),
                 backgroundColor: '#'+fakerator.random.hex(6),
                 geo :fakerator.address.geoLocation(),
-                address: fakerator.address.country()+' '+fakerator.address.city()+' '+fakerator.address.street()
+                address: fakerator.address.country()+' '+fakerator.address.city()+' '+fakerator.address.street(),
+                tags:_.times(fakerator.random.number(20),function (n) {
+                    return fakerator.lorem.word()
+
+                })
             }
         }),
         secondChart: _.times(5,function (n) {
@@ -38,7 +42,11 @@ module.exports = function () {
                 }),
                 backgroundColor: '#'+fakerator.random.hex(6),
                 geo :fakerator.address.geoLocation(),
-                address: fakerator.address.country()+' '+fakerator.address.city()+' '+fakerator.address.street()
+                address: fakerator.address.country()+' '+fakerator.address.city()+' '+fakerator.address.street(),
+                tags:_.times(fakerator.random.number(20),function (n) {
+                    return fakerator.lorem.word()
+
+                })
             }
         }),
         historyChart: _.times(5,function (n) {
@@ -54,7 +62,11 @@ module.exports = function () {
                 }),
                 backgroundColor: '#'+fakerator.random.hex(6),
                 geo :fakerator.address.geoLocation(),
-                address: fakerator.address.country()+' '+fakerator.address.city()+' '+fakerator.address.street()
+                address: fakerator.address.country()+' '+fakerator.address.city()+' '+fakerator.address.street(),
+                tags:_.times(fakerator.random.number(20),function (n) {
+                    return fakerator.lorem.word()
+
+                })
             }
         }),
         usuarios: _.times(20,function (n) {

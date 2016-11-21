@@ -1,11 +1,20 @@
 /**
  * Created by ingam on 13/11/2016.
  */
+var lastShow;
+var lastHidden;
+
+$(document).ready(function () {
+    lastShow=null;
+    lastHidden=null;
+});
+
 var animationName = 'webkitAnimationEnd mozAnimationEnd msAnimationEnd oAnimationEnd animationend';
 
 var select_segmentos_ubicacion=     $('#select-segmentos-ubicacion');
 var container_segmentos_ubicacion=  $('#container-segmentos-ubicacion');
 var container_detalle_grafica=      $('#container-detalle-grafica');
+var select_conductuales=            $('#select-conductuales');
 
 
 select_segmentos_ubicacion.on('change', function () {
@@ -121,27 +130,42 @@ function detalleGrafica(id){
     fillUsuarios(id);
 }
 
-function showTags(){
-    var detalle_grafica_lista_usuarios=$('#detalle-grafica-lista-usuarios');
-    var detalle_grafica_flags_usuarios=$('#detalle-grafica-flags-usuarios');
+select_conductuales.on('change',function () {
 
-    detalle_grafica_lista_usuarios.addClass('animated bounceOutLeft').one(animationName,
-        function () {
-            $(this).removeClass('animated bounceOutLeft');
-            $(this).addClass('hidden');
+    if (this.value === "usuarios") {
+        showUsers();
+    }
+    if (this.value === "segmentos") {
+        showTagsSegmentos();
+    }
 
-            detalle_grafica_flags_usuarios.removeClass('hidden');
-            $('#detalle-grafica-flags-usuarios').find('a').tagcloud();
-            detalle_grafica_flags_usuarios.addClass('animated bounceInRight').one(animationName,
-                function () {
-                    $(this).removeClass('animated bounceInRight');
-                }
-            );
-        }
-    );
+});
 
+function showUsers() {
+    hideAllConductual();
+    $('#detalle-grafica-lista-usuarios').removeClass('hidden');
+
+    fillUsuarios();
 }
 
+function showTagsUser() {
+    hideAllConductual();
+    $('#detalle-grafica-flags-usuarios').removeClass('hidden');
+}
+
+function showTagsSegmentos() {
+    hideAllConductual();
+    $('#detalle-grafica-flags-segmentos').removeClass('hidden');
+
+    fillSegmentos();
+    
+}
+
+function hideAllConductual() {
+    $('#detalle-grafica-flags-usuarios').addClass('hidden');
+    $('#detalle-grafica-lista-usuarios').addClass('hidden');
+    $('#detalle-grafica-flags-segmentos').addClass('hidden');
+}
 
 
 
