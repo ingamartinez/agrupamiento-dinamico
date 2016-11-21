@@ -56,6 +56,17 @@ module.exports = function () {
                 geo :fakerator.address.geoLocation(),
                 address: fakerator.address.country()+' '+fakerator.address.city()+' '+fakerator.address.street()
             }
+        }),
+        usuarios: _.times(20,function (n) {
+            return{
+                id: n+1,
+                nombre: fakerator.names.name(),
+                tags:_.times(fakerator.random.number(20),function (n) {
+                    return fakerator.lorem.word()
+
+                })
+
+            }
         })
 
     }

@@ -53,7 +53,7 @@
 </nav>
 
 <div class="container container-fluid">
-    <div class="container-segmentos-ubicacion">
+    <div id="container-segmentos-ubicacion" class="">
         <div class="row">
             <div class="col-lg-10 col-lg-offset-2">
                 <div class="panel panel-default">
@@ -64,94 +64,6 @@
                                 <option value="segmentos">Segmentos</option>
                                 <option value="ubicacion-geografica">Ubicación Geografica</option>
                             </select>
-                            <div id="segmentos_ubicacion_chart">
-                                <canvas id="chart-segmentos" width="600" height="200"></canvas>
-                                <h2 class="text-center">Anterior</h2>
-                                <canvas id="chart-segmentos-anterior" width="600" height="200"></canvas>
-                            </div>
-                            <div id="segmentos-ubicacion-map" class="hidden">
-                                <div id="map-first"
-                                     style="width:100%; height:300px;position: relative; overflow: hidden; background-color: rgb(229, 227, 223);">
-                                </div>
-                                <h2 class="text-center">Anterior</h2>
-                                <div id="map-second"
-                                     style="width:100%; height:300px;position: relative; overflow: hidden; background-color: rgb(229, 227, 223);">
-                                </div>
-
-                            </div>
-                        </div
-
-                    </div>
-                </div>
-
-                <div class="panel panel-default">
-
-                    <div class="panel-body">
-                        <h3 class="center-block">Historial</h3>
-                        <form action="#">
-                            <div class="form-group">
-                                <div class="col-lg-3">
-                                    <select class="form-control with-auto center-block" id="segmentos-select-dia">
-
-                                    </select>
-                                </div>
-                                <div class="col-lg-3">
-                                    <select class="form-control with-auto center-block" id="segmentos-select-mes">
-
-                                    </select>
-                                </div>
-                                <div class="col-lg-3">
-                                    <select class="form-control with-auto center-block" id="segmentos-select-año">
-
-                                    </select>
-                                </div>
-                                <div class="col-lg-3">
-                                    <button type="button" id="segmentos-button-send" class="btn btn-primary"> Buscar
-                                    </button>
-                                </div>
-
-                                <div id="segmentos-ubicacion-chart-historial">
-                                    <canvas id="chart-segmentos-historial" width="600" height="200"></canvas>
-                                </div>
-
-                                <div id="segmentos-ubicacion-map-historial" class="hidden">
-                                    <div id="map-history"
-                                         style="width:100%; height:300px;position: relative; overflow: hidden; background-color: rgb(229, 227, 223);">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <div class="container-detalle-grafica hidden">
-        <div class="row">
-            <div class="col-lg-10 col-lg-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-
-                        <div class="form-group">
-                            <select class="form-control with-auto center-block" id="select-detalle-grafica">
-                                <option value="conductual">Conductual</option>
-                                <option value="demogafica">Demogafica</option>
-                                <option value="psicografia">Psicografia</option>
-                            </select>
-                            <select class="form-control with-auto center-block" id="select-conductuales">
-                                <option value="segmentos">Segmentos</option>
-                                <option value="usuarios">usuarios</option>
-                            </select>
-                            <select class="form-control with-auto center-block" id="select-psicografia">
-                                <option value="personalidad">Personalidad</option>
-                                <option value="estilo-vida">Estilo de Vida</option>
-                                <option value="valores">Valores</option>
-                                <option value="clase-social">Clase Social</option>
-                            </select>
-
                             <div id="segmentos_ubicacion_chart">
                                 <canvas id="chart-segmentos" width="600" height="200"></canvas>
                                 <h2 class="text-center">Anterior</h2>
@@ -218,34 +130,126 @@
             </div>
         </div>
     </div>
+    <div id="container-detalle-grafica" class="hidden">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-body">
 
-</div>
+                        <div class="form-group">
+                            <select class="form-control with-auto center-block" id="select-detalle-grafica">
+                                <option value="conductual">Conductual</option>
+                                <option value="demogafica">Demogafica</option>
+                                <option value="psicografia">Psicografia</option>
+                            </select>
+                            <select class="form-control with-auto center-block" id="select-conductuales">
+                                <option value="usuarios">Usuarios</option>
+                                <option value="segmentos">Segmentos</option>
+                            </select>
+
+                            <select class="form-control with-auto center-block hidden" id="select-psicografia">
+                                <option value="personalidad">Personalidad</option>
+                                <option value="estilo-vida">Estilo de Vida</option>
+                                <option value="valores">Valores</option>
+                                <option value="clase-social">Clase Social</option>
+                            </select>
+
+                            <div id="detalle-grafica-lista-usuarios">
+                                <ul class="usuarios" id="list-usuarios">
+                                </ul>
+                            </div>
+                            <div id="detalle-grafica-flags-usuarios" class="hidden">
+                                <a href="#" rel="7">peace</a>
+                                <a href="#" rel="3">unity</a>
+                                <a href="#" rel="10">love</a>
+                                <a href="#" rel="5">having fun</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--<div class="panel panel-default">-->
+
+                        <!--<div class="panel-body">-->
+                            <!--<h3 class="center-block">Historial</h3>-->
+                            <!--<form action="#">-->
+                                <!--<div class="form-group">-->
+                                    <!--<div class="col-lg-3">-->
+                                        <!--<select class="form-control with-auto center-block" id="segmentos-select-dia">-->
+
+                                        <!--</select>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-lg-3">-->
+                                        <!--<select class="form-control with-auto center-block" id="segmentos-select-mes">-->
+
+                                        <!--</select>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-lg-3">-->
+                                        <!--<select class="form-control with-auto center-block" id="segmentos-select-año">-->
+
+                                        <!--</select>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-lg-3">-->
+                                        <!--<button type="button" id="segmentos-button-send" class="btn btn-primary">-->
+                                            <!--Buscar-->
+                                        <!--</button>-->
+                                    <!--</div>-->
+
+                                    <!--<div id="segmentos-ubicacion-chart-historial">-->
+                                        <!--<canvas id="chart-segmentos-historial" width="600" height="200"></canvas>-->
+                                    <!--</div>-->
+
+                                    <!--<div id="segmentos-ubicacion-map-historial" class="hidden">-->
+                                        <!--<div id="map-history"-->
+                                             <!--style="width:100%; height:300px;position: relative; overflow: hidden; background-color: rgb(229, 227, 223);">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</form>-->
 
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/chart/js/chart.js"></script>
+                        <!--</div>-->
+                    <!--</div>-->
 
-<script>
+                </div>
+            </div>
+        </div>
 
-    $(document).ready(function () {
-        moment.locale('es')
-
-        Chart.defaults.global.responsive = true;
-
-    });
+    </div>
 
 
-</script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/chart/js/chart.js"></script>
 
-<script src="assets/js/ubicacion_geografica-segmentos.js"></script>
-<script src="assets/js/dobPicker.js"></script>
-<script src="assets/js/moment-with-locales.js"></script>
-<script src="assets/js/moment-with-locales.js"></script>
-<script src="assets/js/maps.js"></script>
-<script src="assets/js/control.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            moment.locale('es')
+
+            Chart.defaults.global.responsive = true;
+
+            $.fn.tagcloud.defaults = {
+                size: {start: 20, end: 60, unit: 'pt'},
+                color: {start: '#000000', end: '#B8BBB9'}
+            };
+
+        });
+
+
+    </script>
+
+
+    <script src="assets/js/dobPicker.js"></script>
+    <script src="assets/js/moment-with-locales.js"></script>
+    <script src="assets/js/moment-with-locales.js"></script>
+    <script src="assets/js/maps.js"></script>
+    <script src="assets/js/jquery.tagcloud.js"></script>
+    <script src="assets/js/ubicacion_geografica-segmentos.js"></script>
+    <script src="assets/js/control.js"></script>
+    <script src="assets/js/detalle-grafica.js"></script>
 
 
 </body>

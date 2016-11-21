@@ -1,11 +1,15 @@
 /**
  * Created by ingam on 13/11/2016.
  */
+var animationName = 'webkitAnimationEnd mozAnimationEnd msAnimationEnd oAnimationEnd animationend';
 
-var select_segmentos_ubicacion=$('#select-segmentos-ubicacion');
+var select_segmentos_ubicacion=     $('#select-segmentos-ubicacion');
+var container_segmentos_ubicacion=  $('#container-segmentos-ubicacion');
+var container_detalle_grafica=      $('#container-detalle-grafica');
+
 
 select_segmentos_ubicacion.on('change', function () {
-    var animationName = 'webkitAnimationEnd mozAnimationEnd msAnimationEnd oAnimationEnd animationend';
+
 
     var segmentos_ubicacion_chart =             $('#segmentos_ubicacion_chart');
     var segmentos_ubicacion_chart_historial=    $('#segmentos-ubicacion-chart-historial');
@@ -100,5 +104,66 @@ $('#segmentos-button-send').on('click',function () {
 });
 
 function detalleGrafica(id){
-    console.log(id);
+    container_segmentos_ubicacion.addClass('animated zoomOut').one(animationName,
+        function () {
+            $(this).removeClass('animated zoomOut');
+            $(this).addClass('hidden');
+
+            container_detalle_grafica.removeClass('hidden');
+            container_detalle_grafica.addClass('animated zoomIn').one(animationName,
+                function () {
+                    $(this).removeClass('animated zoomIn');
+
+                }
+            );
+        }
+    );
+    fillUsuarios(id);
 }
+
+function showTags(){
+    var detalle_grafica_lista_usuarios=$('#detalle-grafica-lista-usuarios');
+    var detalle_grafica_flags_usuarios=$('#detalle-grafica-flags-usuarios');
+
+    detalle_grafica_lista_usuarios.addClass('animated bounceOutLeft').one(animationName,
+        function () {
+            $(this).removeClass('animated bounceOutLeft');
+            $(this).addClass('hidden');
+
+            detalle_grafica_flags_usuarios.removeClass('hidden');
+            $('#detalle-grafica-flags-usuarios').find('a').tagcloud();
+            detalle_grafica_flags_usuarios.addClass('animated bounceInRight').one(animationName,
+                function () {
+                    $(this).removeClass('animated bounceInRight');
+                }
+            );
+        }
+    );
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

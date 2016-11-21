@@ -11,3 +11,25 @@
 #google-map iframe {
     margin-bottom: -5px;
 }
+
+
+li{
+    /*display:inline;*/
+    float:left;
+    padding:0 10px;
+}
+
+.usuarios{
+    font-size: 1.2em;
+}
+
+ul.usuarios li a{
+    text-decoration: none;
+    color:#555;
+    font-weight:500;
+}
+ul.usuarios li a:hover {
+    text-decoration: none;
+    color:#989595;
+    font-weight:500;
+}
