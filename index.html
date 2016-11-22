@@ -137,9 +137,9 @@
                     <div class="panel-body">
 
                         <div class="form-group">
-                            <select class="form-control with-auto center-block" id="select-detalle-grafica">
+                            <select style="margin-bottom: 10px;" class="form-control with-auto center-block" id="select-detalle-grafica">
                                 <option value="conductual">Conductual</option>
-                                <option value="demogafica">Demogafica</option>
+                                <option value="demografia">Demografia</option>
                                 <option value="psicografia">Psicografia</option>
                             </select>
                             <select class="form-control with-auto center-block" id="select-conductuales">
@@ -153,103 +153,137 @@
                                 <option value="valores">Valores</option>
                                 <option value="clase-social">Clase Social</option>
                             </select>
+                            <div id="detalle-grafica-conductuales">
+                                <div id="detalle-grafica-lista-usuarios">
+                                    <ul class="usuarios" id="list-usuarios">
+                                    </ul>
+                                </div>
+                                <div id="detalle-grafica-flags-usuarios" class="hidden">
+                                </div>
 
-                            <div id="detalle-grafica-lista-usuarios">
-                                <ul class="usuarios" id="list-usuarios">
-                                </ul>
-                            </div>
-                            <div id="detalle-grafica-flags-usuarios" class="hidden">
+                                <div id="detalle-grafica-flags-segmentos" class="hidden">
+                                </div>
                             </div>
 
-                            <div id="detalle-grafica-flags-segmentos" class="hidden">
+                            <div id="detalle-grafica-psicografia">
+                                <div id="detalle-grafica-personalidad">
+                                    <canvas id="chart-personalidad" width="600" height="200"></canvas>
+                                </div>
+                                <div id="detalle-grafica-estilo-vida" class="hidden">
+                                    <canvas id="chart-estilo-vida" width="600" height="200"></canvas>
+                                </div>
+                                <div id="detalle-grafica-valores" class="hidden">
+                                    <canvas id="chart-valores" width="600" height="200"></canvas>
+                                </div>
+                                <div id="detalle-grafica-clase-social" class="hidden">
+                                    <canvas id="chart-clase-social" width="600" height="200"></canvas>
+                                </div>
 
                             </div>
+
 
                         </div>
                     </div>
-
-                    <!--<div class="panel panel-default">-->
-
-                        <!--<div class="panel-body">-->
-                            <!--<h3 class="center-block">Historial</h3>-->
-                            <!--<form action="#">-->
-                                <!--<div class="form-group">-->
-                                    <!--<div class="col-lg-3">-->
-                                        <!--<select class="form-control with-auto center-block" id="segmentos-select-dia">-->
-
-                                        <!--</select>-->
-                                    <!--</div>-->
-                                    <!--<div class="col-lg-3">-->
-                                        <!--<select class="form-control with-auto center-block" id="segmentos-select-mes">-->
-
-                                        <!--</select>-->
-                                    <!--</div>-->
-                                    <!--<div class="col-lg-3">-->
-                                        <!--<select class="form-control with-auto center-block" id="segmentos-select-año">-->
-
-                                        <!--</select>-->
-                                    <!--</div>-->
-                                    <!--<div class="col-lg-3">-->
-                                        <!--<button type="button" id="segmentos-button-send" class="btn btn-primary">-->
-                                            <!--Buscar-->
-                                        <!--</button>-->
-                                    <!--</div>-->
-
-                                    <!--<div id="segmentos-ubicacion-chart-historial">-->
-                                        <!--<canvas id="chart-segmentos-historial" width="600" height="200"></canvas>-->
-                                    <!--</div>-->
-
-                                    <!--<div id="segmentos-ubicacion-map-historial" class="hidden">-->
-                                        <!--<div id="map-history"-->
-                                             <!--style="width:100%; height:300px;position: relative; overflow: hidden; background-color: rgb(229, 227, 223);">-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</form>-->
-
-
-                        <!--</div>-->
-                    <!--</div>-->
-
                 </div>
+
+                <div class="panel panel-default hidden">
+
+                    <div class="panel-body">
+                        <h3 class="center-block">Historial</h3>
+                        <form action="#">
+                            <div class="form-group">
+                                <select class="form-control with-auto center-block" id="select-detalle-grafica-historial">
+                                    <option value="conductual">Conductual</option>
+                                    <option value="demogafica">Demogafica</option>
+                                    <option value="psicografia">Psicografia</option>
+                                </select>
+                                <select class="form-control with-auto center-block" id="select-conductuales-historial">
+                                    <option value="usuarios">Usuarios</option>
+                                    <option value="segmentos">Segmentos</option>
+                                </select>
+
+                                <select class="form-control with-auto center-block hidden" id="select-psicografia-historial">
+                                    <option value="personalidad">Personalidad</option>
+                                    <option value="estilo-vida">Estilo de Vida</option>
+                                    <option value="valores">Valores</option>
+                                    <option value="clase-social">Clase Social</option>
+                                </select>
+
+                                <div class="col-lg-3">
+                                    <select class="form-control with-auto center-block" id="detalle-grafica-select-dia">
+
+                                    </select>
+                                </div>
+                                <div class="col-lg-3">
+                                    <select class="form-control with-auto center-block" id="detalle-grafica-select-mes">
+
+                                    </select>
+                                </div>
+                                <div class="col-lg-3">
+                                    <select class="form-control with-auto center-block" id="detalle-grafica-select-año">
+
+                                    </select>
+                                </div>
+                                <div class="col-lg-3">
+                                    <button type="button" id="detalle-grafica-button-send" class="btn btn-primary">
+                                        Buscar
+                                    </button>
+                                </div>
+
+                                <div id="detalle-grafica-usuarios-historial">
+
+                                </div>
+
+                                <div id="detalle-grafica-segmentos-historial" class="hidden">
+
+                                </div>
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+
             </div>
         </div>
-
     </div>
 
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/chart/js/chart.js"></script>
-
-    <script>
-
-        $(document).ready(function () {
-            moment.locale('es')
-
-            Chart.defaults.global.responsive = true;
-
-            $.fn.tagcloud.defaults = {
-                size: {start: 20, end: 40, unit: 'pt'},
-                color: {start: '#3850EC', end: '#44E267'}
-            };
-
-        });
+</div>
 
 
-    </script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/chart/js/chart.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        moment.locale('es')
+
+        Chart.defaults.global.responsive = true;
+
+        $.fn.tagcloud.defaults = {
+            size: {start: 20, end: 40, unit: 'pt'},
+            color: {start: '#3850EC', end: '#44E267'}
+        };
+
+    });
 
 
-    <script src="assets/js/dobPicker.js"></script>
-    <script src="assets/js/moment-with-locales.js"></script>
-    <script src="assets/js/moment-with-locales.js"></script>
-    <script src="assets/js/maps.js"></script>
-    <script src="assets/js/jquery.tagcloud.js"></script>
-    <script src="assets/js/ubicacion_geografica-segmentos.js"></script>
-    <script src="assets/js/control.js"></script>
-    <script src="assets/js/detalle-grafica.js"></script>
+</script>
+
+
+<script src="assets/js/dobPicker.js"></script>
+<script src="assets/js/moment-with-locales.js"></script>
+<script src="assets/js/moment-with-locales.js"></script>
+<script src="assets/js/maps.js"></script>
+<script src="assets/js/jquery.tagcloud.js"></script>
+<script src="assets/js/ubicacion_geografica-segmentos.js"></script>
+<script src="assets/js/control.js"></script>
+<script src="assets/js/detalle-grafica.js"></script>
+<script src="assets/js/demografia.js"></script>
 
 
 </body>

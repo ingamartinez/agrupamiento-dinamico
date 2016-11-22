@@ -1,12 +1,9 @@
 /**
  * Created by ingam on 13/11/2016.
  */
-var lastShow;
-var lastHidden;
 
 $(document).ready(function () {
-    lastShow=null;
-    lastHidden=null;
+
 });
 
 var animationName = 'webkitAnimationEnd mozAnimationEnd msAnimationEnd oAnimationEnd animationend';
@@ -128,6 +125,7 @@ function detalleGrafica(id){
         }
     );
     fillUsuarios(id);
+    initHistorySelect();
 }
 
 select_conductuales.on('change',function () {
@@ -140,6 +138,25 @@ select_conductuales.on('change',function () {
     }
 
 });
+
+$('#select-detalle-grafica').on('change',function () {
+
+    if (this.value === "conductual") {
+        showConductual();
+    }
+    if (this.value === "demografia") {
+        showDemografia();
+    }
+
+});
+
+function showConductual() {
+    hideAllPsicografia();
+    hidePsicografia();
+
+    $('#select-conductuales').removeClass('hidden');
+    showUsers();
+}
 
 function showUsers() {
     hideAllConductual();
@@ -167,7 +184,37 @@ function hideAllConductual() {
     $('#detalle-grafica-flags-segmentos').addClass('hidden');
 }
 
+function hideConductual() {
+    $('#detalle-grafica-flags-usuarios').addClass('hidden');
+    $('#detalle-grafica-lista-usuarios').addClass('hidden');
+    $('#detalle-grafica-flags-segmentos').addClass('hidden');
+    $('#select-conductuales').addClass('hidden');
+}
 
+function showDemografia() {
+    hideAllConductual();
+    hideConductual();
+
+    $('#select-psicografia').removeClass('hidden');
+    showPersonalidad();
+}
+
+function hideAllPsicografia() {
+    $('#detalle-grafica-personalidad').addClass('hidden');
+    $('#detalle-grafica-estilo-vida').addClass('hidden');
+    $('#detalle-grafica-valores').addClass('hidden');
+    $('#detalle-grafica-clase-social').addClass('hidden');
+}
+
+function hidePsicografia() {
+    $('#select-psicografia').addClass('hidden');
+}
+
+function showPersonalidad() {
+    hideAllPsicografia();
+    $('#detalle-grafica-personalidad').removeClass('hidden');
+    initChartPsicografia();
+}
 
 
 

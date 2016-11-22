@@ -3,17 +3,22 @@
  */
 $(document).ready(function () {
 
-    // $.dobPicker({
-    //     daySelector: '#segmentos-select-dia',
-    //     monthSelector: '#segmentos-select-mes',
-    //     yearSelector: '#segmentos-select-año',
-    //
-    //     dayDefault: 'Día',
-    //     monthDefault: 'Mes',
-    //     yearDefault: 'Año'
-    // });
+
 
 });
+
+function initHistorySelect() {
+    $.dobPicker({
+        daySelector: '#detalle-grafica-select-dia',
+        monthSelector: '#detalle-grafica-select-mes',
+        yearSelector: '#detalle-grafica-select-año',
+
+        dayDefault: 'Día',
+        monthDefault: 'Mes',
+        yearDefault: 'Año'
+    });
+}
+
 var id;
 // var usuario;
 function fillUsuarios(id) {
