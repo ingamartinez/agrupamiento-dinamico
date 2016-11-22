@@ -33,3 +33,7 @@ ul.usuarios li a:hover {
     color:#989595;
     font-weight:500;
 }
+
+.fa-8x {
+    font-size: 8em !important;
+}

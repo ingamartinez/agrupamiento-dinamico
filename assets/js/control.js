@@ -147,12 +147,21 @@ $('#select-detalle-grafica').on('change',function () {
     if (this.value === "demografia") {
         showDemografia();
     }
+});
 
+$('#select-demografia').on('change',function () {
+
+    if (this.value === "personalidad") {
+        showPersonalidad();
+    }
+    if (this.value === "estilo-vida") {
+        showEstiloVida();
+    }
 });
 
 function showConductual() {
-    hideAllPsicografia();
-    hidePsicografia();
+    hideAllDemografia();
+    hideDemografia();
 
     $('#select-conductuales').removeClass('hidden');
     showUsers();
@@ -195,31 +204,49 @@ function showDemografia() {
     hideAllConductual();
     hideConductual();
 
-    $('#select-psicografia').removeClass('hidden');
+    $('#select-demografia').removeClass('hidden');
     showPersonalidad();
 }
 
-function hideAllPsicografia() {
+function hideAllDemografia() {
     $('#detalle-grafica-personalidad').addClass('hidden');
+    $('#detalle-grafica-detalle-personalidad').addClass('hidden');
+
     $('#detalle-grafica-estilo-vida').addClass('hidden');
+    $('#detalle-grafica-detalle-estilo-vida').addClass('hidden');
+
+
     $('#detalle-grafica-valores').addClass('hidden');
     $('#detalle-grafica-clase-social').addClass('hidden');
 }
 
-function hidePsicografia() {
-    $('#select-psicografia').addClass('hidden');
+function hideDemografia() {
+    $('#select-demografia').addClass('hidden');
 }
 
 function showPersonalidad() {
-    hideAllPsicografia();
+    hideAllDemografia();
     $('#detalle-grafica-personalidad').removeClass('hidden');
-    initChartPsicografia();
+    initChartPersonalidad();
 }
 
+function showDetallePersonalidad(id) {
+    hideAllDemografia();
+    $('#detalle-grafica-detalle-personalidad').removeClass('hidden');
+    initDetallePersonalidad(id);
+}
 
+function showEstiloVida() {
+    hideAllDemografia();
+    $('#detalle-grafica-estilo-vida').removeClass('hidden');
+    initChartEstiloVida();
+}
 
-
-
+function showDetalleEstiloVida(id) {
+    hideAllDemografia();
+    $('#detalle-grafica-detalle-estilo-vida').removeClass('hidden');
+    initDetalleEstiloVida(id);
+}
 
 
 

@@ -11,6 +11,7 @@
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -147,7 +148,7 @@
                                 <option value="segmentos">Segmentos</option>
                             </select>
 
-                            <select class="form-control with-auto center-block hidden" id="select-psicografia">
+                            <select class="form-control with-auto center-block hidden" id="select-demografia">
                                 <option value="personalidad">Personalidad</option>
                                 <option value="estilo-vida">Estilo de Vida</option>
                                 <option value="valores">Valores</option>
@@ -166,12 +167,22 @@
                             </div>
 
                             <div id="detalle-grafica-psicografia">
+
                                 <div id="detalle-grafica-personalidad">
                                     <canvas id="chart-personalidad" width="600" height="200"></canvas>
                                 </div>
+                                <div id="detalle-grafica-detalle-personalidad" class="hidden">
+                                </div>
+
+
+
                                 <div id="detalle-grafica-estilo-vida" class="hidden">
                                     <canvas id="chart-estilo-vida" width="600" height="200"></canvas>
                                 </div>
+                                <div id="detalle-grafica-detalle-estilo-vida" class="hidden">
+                                </div>
+
+
                                 <div id="detalle-grafica-valores" class="hidden">
                                     <canvas id="chart-valores" width="600" height="200"></canvas>
                                 </div>
