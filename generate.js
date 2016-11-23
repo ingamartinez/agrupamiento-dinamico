@@ -149,6 +149,76 @@ module.exports = function () {
 
                 })
             }
+        }),
+        chartValores: _.times(5,function (n) {
+            return{
+                id: n+1,
+                label: fakerator.lorem.word()+' - '+fakerator.lorem.word(),
+                data: _.times(1,function (n) {
+                    return {
+                        x:fakerator.random.number(50,100),
+                        y:fakerator.random.number(50,100),
+                        r:fakerator.random.number(50,100)/4
+                    }
+                }),
+                backgroundColor: '#'+fakerator.random.hex(6),
+                details:_.times(fakerator.random.number(1),function (n) {
+                    return {
+                        mujer: {
+                            porcentaje: fakerator.random.number(1,100)+'%',
+                            icon:'fa-female'
+                        },
+                        hombre: {
+                            porcentaje: fakerator.random.number(1,100)+'%',
+                            icon:'fa-male'
+                        },
+                        casa: {
+                            porcentaje: fakerator.random.number(1,100)+'%',
+                            icon:'fa-home'
+                        },
+                        carrito: {
+                            porcentaje: fakerator.random.number(1,100)+'%',
+                            icon:'fa-cart-plus'
+                        }
+                    }
+
+                })
+            }
+        }),
+        chartClaseSocial: _.times(5,function (n) {
+            return{
+                id: n+1,
+                label: fakerator.lorem.word()+' - '+fakerator.lorem.word(),
+                data: _.times(1,function (n) {
+                    return {
+                        x:fakerator.random.number(50,100),
+                        y:fakerator.random.number(50,100),
+                        r:fakerator.random.number(50,100)/4
+                    }
+                }),
+                backgroundColor: '#'+fakerator.random.hex(6),
+                details:_.times(fakerator.random.number(1),function (n) {
+                    return {
+                        mujer: {
+                            porcentaje: fakerator.random.number(1,100)+'%',
+                            icon:'fa-female'
+                        },
+                        hombre: {
+                            porcentaje: fakerator.random.number(1,100)+'%',
+                            icon:'fa-male'
+                        },
+                        casa: {
+                            porcentaje: fakerator.random.number(1,100)+'%',
+                            icon:'fa-home'
+                        },
+                        carrito: {
+                            porcentaje: fakerator.random.number(1,100)+'%',
+                            icon:'fa-cart-plus'
+                        }
+                    }
+
+                })
+            }
         })
     }
 };

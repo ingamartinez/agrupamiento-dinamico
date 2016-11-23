@@ -140,15 +140,16 @@
                         <div class="form-group">
                             <select style="margin-bottom: 10px;" class="form-control with-auto center-block" id="select-detalle-grafica">
                                 <option value="conductual">Conductual</option>
-                                <option value="demografia">Demografia</option>
                                 <option value="psicografia">Psicografia</option>
+                                <option value="demografia">Demografia</option>
+
                             </select>
                             <select class="form-control with-auto center-block" id="select-conductuales">
                                 <option value="usuarios">Usuarios</option>
                                 <option value="segmentos">Segmentos</option>
                             </select>
 
-                            <select class="form-control with-auto center-block hidden" id="select-demografia">
+                            <select class="form-control with-auto center-block hidden" id="select-psicografia">
                                 <option value="personalidad">Personalidad</option>
                                 <option value="estilo-vida">Estilo de Vida</option>
                                 <option value="valores">Valores</option>
@@ -175,7 +176,6 @@
                                 </div>
 
 
-
                                 <div id="detalle-grafica-estilo-vida" class="hidden">
                                     <canvas id="chart-estilo-vida" width="600" height="200"></canvas>
                                 </div>
@@ -186,8 +186,14 @@
                                 <div id="detalle-grafica-valores" class="hidden">
                                     <canvas id="chart-valores" width="600" height="200"></canvas>
                                 </div>
+                                <div id="detalle-grafica-detalle-valores" class="hidden">
+                                </div>
+
+
                                 <div id="detalle-grafica-clase-social" class="hidden">
                                     <canvas id="chart-clase-social" width="600" height="200"></canvas>
+                                </div>
+                                <div id="detalle-grafica-detalle-clase-social" class="hidden">
                                 </div>
 
                             </div>
@@ -294,7 +300,7 @@
 <script src="assets/js/ubicacion_geografica-segmentos.js"></script>
 <script src="assets/js/control.js"></script>
 <script src="assets/js/detalle-grafica.js"></script>
-<script src="assets/js/demografia.js"></script>
+<script src="assets/js/psicografia.js"></script>
 
 
 </body>

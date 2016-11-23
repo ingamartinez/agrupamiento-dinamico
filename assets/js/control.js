@@ -144,12 +144,12 @@ $('#select-detalle-grafica').on('change',function () {
     if (this.value === "conductual") {
         showConductual();
     }
-    if (this.value === "demografia") {
-        showDemografia();
+    if (this.value === "psicografia") {
+        showPsicografia();
     }
 });
 
-$('#select-demografia').on('change',function () {
+$('#select-psicografia').on('change',function () {
 
     if (this.value === "personalidad") {
         showPersonalidad();
@@ -157,11 +157,17 @@ $('#select-demografia').on('change',function () {
     if (this.value === "estilo-vida") {
         showEstiloVida();
     }
+    if (this.value === "valores") {
+        showValores();
+    }
+    if (this.value === "clase-social") {
+        showClaseSocial();
+    }
 });
 
 function showConductual() {
-    hideAllDemografia();
-    hideDemografia();
+    hideAllPsicografia();
+    hidePsicografia();
 
     $('#select-conductuales').removeClass('hidden');
     showUsers();
@@ -200,57 +206,80 @@ function hideConductual() {
     $('#select-conductuales').addClass('hidden');
 }
 
-function showDemografia() {
+function showPsicografia() {
     hideAllConductual();
     hideConductual();
 
-    $('#select-demografia').removeClass('hidden');
+    $('#select-psicografia').removeClass('hidden');
+    $('#select-psicografia').val('personalidad');
     showPersonalidad();
 }
 
-function hideAllDemografia() {
+function hideAllPsicografia() {
     $('#detalle-grafica-personalidad').addClass('hidden');
     $('#detalle-grafica-detalle-personalidad').addClass('hidden');
 
     $('#detalle-grafica-estilo-vida').addClass('hidden');
     $('#detalle-grafica-detalle-estilo-vida').addClass('hidden');
 
-
     $('#detalle-grafica-valores').addClass('hidden');
+    $('#detalle-grafica-detalle-valores').addClass('hidden');
+
     $('#detalle-grafica-clase-social').addClass('hidden');
+    $('#detalle-grafica-detalle-clase-social').addClass('hidden');
 }
 
-function hideDemografia() {
-    $('#select-demografia').addClass('hidden');
+function hidePsicografia() {
+    $('#select-psicografia').addClass('hidden');
 }
 
 function showPersonalidad() {
-    hideAllDemografia();
+    hideAllPsicografia();
     $('#detalle-grafica-personalidad').removeClass('hidden');
     initChartPersonalidad();
 }
 
 function showDetallePersonalidad(id) {
-    hideAllDemografia();
+    hideAllPsicografia();
     $('#detalle-grafica-detalle-personalidad').removeClass('hidden');
     initDetallePersonalidad(id);
 }
 
 function showEstiloVida() {
-    hideAllDemografia();
+    hideAllPsicografia();
     $('#detalle-grafica-estilo-vida').removeClass('hidden');
     initChartEstiloVida();
 }
 
 function showDetalleEstiloVida(id) {
-    hideAllDemografia();
+    hideAllPsicografia();
     $('#detalle-grafica-detalle-estilo-vida').removeClass('hidden');
     initDetalleEstiloVida(id);
 }
 
+function showValores() {
+    hideAllPsicografia();
+    $('#detalle-grafica-valores').removeClass('hidden');
+    initChartValores();
+}
 
+function showDetalleValores(id) {
+    hideAllPsicografia();
+    $('#detalle-grafica-detalle-valores').removeClass('hidden');
+    initDetalleValores(id);
+}
 
+function showClaseSocial() {
+    hideAllPsicografia();
+    $('#detalle-grafica-clase-social').removeClass('hidden');
+    initChartClaseSocial();
+}
 
+function showDetalleClaseSocial(id) {
+    hideAllPsicografia();
+    $('#detalle-grafica-detalle-clase-social').removeClass('hidden');
+    initDetalleClaseSocial(id);
+}
 
 
 
