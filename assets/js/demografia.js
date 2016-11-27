@@ -20,11 +20,11 @@ function initMapDemografia() {
 
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/firstChart',
+        url: 'http://localhost:3000/firstChart?segmento='+id,
         success: function (data) {
 
             if (_.isEmpty(data) || data.length<=0){
-
+                $('#detalle-grafica-link').removeClass('hidden');
             }else {
                 _.each(data,function (item) {
                     var pos=new google.maps.LatLng(item.geo.latitude,item.geo.longitude);
@@ -46,7 +46,8 @@ function initMapDemografia() {
         google.maps.event.addListener(marker, 'click', function() {
             infoWindow.setContent(html);
             infoWindow.open(map_first, marker);
-            detalleGrafica(id);
+            // showDemografiaBarChart(id);
+            showDemografiaBarChart(id);
         });
 
         if (searchMarkers != null) {
@@ -54,5 +55,317 @@ function initMapDemografia() {
         }else{
             searchMarkers = new Array(marker);
         }
+    }
+}
+
+function initChartEdad() {
+
+    $('#detalle-grafica-demografia-chart').replaceWith('<canvas id="detalle-grafica-demografia-chart" width="600" height="200"></canvas>');
+
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/chartEdad',
+        success: function (data) {
+            renderChart(data);
+        }
+    });
+
+
+    function renderChart(charts) {
+
+        var labels=_.pluck(charts,'label');
+        var data=_.pluck(charts,'data');
+        var backgroundColor=_.pluck(charts,'backgroundColor');
+        var borderColor=_.pluck(charts,'borderColor');
+
+        //Capturar el canvas de la primera grafica
+        var ctx = $('#detalle-grafica-demografia-chart');
+
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label:"Grafico Edad",
+                        backgroundColor:backgroundColor,
+                        borderColor:borderColor,
+                        borderWidth:1,
+                        data:data
+                    }
+                ]
+            },
+            options:
+                {
+                    scales: {
+                        xAxes: [{
+                            stacked: true
+                        }],
+                        yAxes: [{
+                            stacked: true
+                        }]
+                    }
+                }
+        });
+    }
+}
+
+function initChartSexo() {
+
+    $('#detalle-grafica-demografia-chart').replaceWith('<canvas id="detalle-grafica-demografia-chart" width="600" height="200"></canvas>');
+
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/chartSexo',
+        success: function (data) {
+            renderChart(data);
+        }
+    });
+
+
+    function renderChart(charts) {
+
+        var labels=_.pluck(charts,'label');
+        var data=_.pluck(charts,'data');
+        var backgroundColor=_.pluck(charts,'backgroundColor');
+        var borderColor=_.pluck(charts,'borderColor');
+
+        //Capturar el canvas de la primera grafica
+        var ctx = $('#detalle-grafica-demografia-chart');
+
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label:"Grafico Edad",
+                        backgroundColor:backgroundColor,
+                        borderColor:borderColor,
+                        borderWidth:1,
+                        data:data
+                    }
+                ]
+            },
+            options:
+                {
+                    scales: {
+                        xAxes: [{
+                            stacked: true
+                        }],
+                        yAxes: [{
+                            stacked: true
+                        }]
+                    }
+                }
+        });
+    }
+}
+
+function initChartEstadoCivil() {
+
+    $('#detalle-grafica-demografia-chart').replaceWith('<canvas id="detalle-grafica-demografia-chart" width="600" height="200"></canvas>');
+
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/chartEstadoCivil',
+        success: function (data) {
+            renderChart(data);
+        }
+    });
+
+
+    function renderChart(charts) {
+
+        var labels=_.pluck(charts,'label');
+        var data=_.pluck(charts,'data');
+        var backgroundColor=_.pluck(charts,'backgroundColor');
+        var borderColor=_.pluck(charts,'borderColor');
+
+        //Capturar el canvas de la primera grafica
+        var ctx = $('#detalle-grafica-demografia-chart');
+
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label:"Grafico Edad",
+                        backgroundColor:backgroundColor,
+                        borderColor:borderColor,
+                        borderWidth:1,
+                        data:data
+                    }
+                ]
+            },
+            options:
+                {
+                    scales: {
+                        xAxes: [{
+                            stacked: true
+                        }],
+                        yAxes: [{
+                            stacked: true
+                        }]
+                    }
+                }
+        });
+    }
+}
+
+function initChartEstudio() {
+
+    $('#detalle-grafica-demografia-chart').replaceWith('<canvas id="detalle-grafica-demografia-chart" width="600" height="200"></canvas>');
+
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/chartEstudio',
+        success: function (data) {
+            renderChart(data);
+        }
+    });
+
+
+    function renderChart(charts) {
+
+        var labels=_.pluck(charts,'label');
+        var data=_.pluck(charts,'data');
+        var backgroundColor=_.pluck(charts,'backgroundColor');
+        var borderColor=_.pluck(charts,'borderColor');
+
+        //Capturar el canvas de la primera grafica
+        var ctx = $('#detalle-grafica-demografia-chart');
+
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label:"Grafico Edad",
+                        backgroundColor:backgroundColor,
+                        borderColor:borderColor,
+                        borderWidth:1,
+                        data:data
+                    }
+                ]
+            },
+            options:
+                {
+                    scales: {
+                        xAxes: [{
+                            stacked: true
+                        }],
+                        yAxes: [{
+                            stacked: true
+                        }]
+                    }
+                }
+        });
+    }
+}
+
+function initChartOcupacion() {
+
+    $('#detalle-grafica-demografia-chart').replaceWith('<canvas id="detalle-grafica-demografia-chart" width="600" height="200"></canvas>');
+
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/chartOcupacion',
+        success: function (data) {
+            renderChart(data);
+        }
+    });
+
+
+    function renderChart(charts) {
+
+        var labels=_.pluck(charts,'label');
+        var data=_.pluck(charts,'data');
+        var backgroundColor=_.pluck(charts,'backgroundColor');
+        var borderColor=_.pluck(charts,'borderColor');
+
+        //Capturar el canvas de la primera grafica
+        var ctx = $('#detalle-grafica-demografia-chart');
+
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label:"Grafico Edad",
+                        backgroundColor:backgroundColor,
+                        borderColor:borderColor,
+                        borderWidth:1,
+                        data:data
+                    }
+                ]
+            },
+            options:
+                {
+                    scales: {
+                        xAxes: [{
+                            stacked: true
+                        }],
+                        yAxes: [{
+                            stacked: true
+                        }]
+                    }
+                }
+        });
+    }
+}
+
+function initChartIngresos() {
+
+    $('#detalle-grafica-demografia-chart').replaceWith('<canvas id="detalle-grafica-demografia-chart" width="600" height="200"></canvas>');
+
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/chartIngresos',
+        success: function (data) {
+            renderChart(data);
+        }
+    });
+
+
+    function renderChart(charts) {
+
+        var labels=_.pluck(charts,'label');
+        var data=_.pluck(charts,'data');
+        var backgroundColor=_.pluck(charts,'backgroundColor');
+        var borderColor=_.pluck(charts,'borderColor');
+
+        //Capturar el canvas de la primera grafica
+        var ctx = $('#detalle-grafica-demografia-chart');
+
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label:"Grafico Edad",
+                        backgroundColor:backgroundColor,
+                        borderColor:borderColor,
+                        borderWidth:1,
+                        data:data
+                    }
+                ]
+            },
+            options:
+                {
+                    scales: {
+                        xAxes: [{
+                            stacked: true
+                        }],
+                        yAxes: [{
+                            stacked: true
+                        }]
+                    }
+                }
+        });
     }
 }

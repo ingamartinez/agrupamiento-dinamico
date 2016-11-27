@@ -6,7 +6,6 @@ module.exports = function () {
     var fakerator = require('fakerator')('es-ES');
     var _ = require('lodash');
 
-
     return {
 
         firstChart: _.times(5,function (n) {
@@ -218,6 +217,60 @@ module.exports = function () {
                     }
 
                 })
+            }
+        }),
+        chartEdad: _.times(5,function (n) {
+            return{
+                id: n+1,
+                label: fakerator.lorem.word(),
+                data: fakerator.random.number(20,100),
+                backgroundColor: 'rgba('+fakerator.random.number(0,255)+',' +fakerator.random.number(0,255)+','+fakerator.random.number(0,255)+','+ 0.2+')',
+                borderColor: 'rgba('+fakerator.random.number(0,255)+',' +fakerator.random.number(0,255)+','+fakerator.random.number(0,255)+','+1+')'
+            }
+        }),
+        chartSexo: _.times(5,function (n) {
+            return{
+                id: n+1,
+                label: fakerator.lorem.word(),
+                data: fakerator.random.number(20,100),
+                backgroundColor: 'rgba('+fakerator.random.number(0,255)+',' +fakerator.random.number(0,255)+','+fakerator.random.number(0,255)+','+ 0.2+')',
+                borderColor: 'rgba('+fakerator.random.number(0,255)+',' +fakerator.random.number(0,255)+','+fakerator.random.number(0,255)+','+1+')'
+            }
+        }),
+        chartEstadoCivil: _.times(5,function (n) {
+            return{
+                id: n+1,
+                label: fakerator.lorem.word(),
+                data: fakerator.random.number(20,100),
+                backgroundColor: 'rgba('+fakerator.random.number(0,255)+',' +fakerator.random.number(0,255)+','+fakerator.random.number(0,255)+','+ 0.2+')',
+                borderColor: 'rgba('+fakerator.random.number(0,255)+',' +fakerator.random.number(0,255)+','+fakerator.random.number(0,255)+','+1+')'
+            }
+        }),
+        chartEstudio: _.times(5,function (n) {
+            return{
+                id: n+1,
+                label: fakerator.lorem.word(),
+                data: fakerator.random.number(20,100),
+                backgroundColor: 'rgba('+fakerator.random.number(0,255)+',' +fakerator.random.number(0,255)+','+fakerator.random.number(0,255)+','+ 0.2+')',
+                borderColor: 'rgba('+fakerator.random.number(0,255)+',' +fakerator.random.number(0,255)+','+fakerator.random.number(0,255)+','+1+')'
+            }
+        }),
+        chartOcupacion: _.times(5,function (n) {
+            return{
+                id: n+1,
+                label: fakerator.lorem.word(),
+                data: fakerator.random.number(20,100),
+                backgroundColor: 'rgba('+fakerator.random.number(0,255)+',' +fakerator.random.number(0,255)+','+fakerator.random.number(0,255)+','+ 0.2+')',
+                borderColor: 'rgba('+fakerator.random.number(0,255)+',' +fakerator.random.number(0,255)+','+fakerator.random.number(0,255)+','+1+')'
+            }
+        }),
+        chartIngresos: _.times(5,function (n) {
+            return{
+                id: n+1,
+                label: fakerator.lorem.word(),
+                data: fakerator.random.number(20,100),
+                backgroundColor: 'rgba('+fakerator.random.number(0,255)+',' +fakerator.random.number(0,255)+','+fakerator.random.number(0,255)+','+ 0.2+')',
+                borderColor: 'rgba('+fakerator.random.number(0,255)+',' +fakerator.random.number(0,255)+','+fakerator.random.number(0,255)+','+1+')'
             }
         })
     }

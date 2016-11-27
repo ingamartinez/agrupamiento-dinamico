@@ -312,8 +312,40 @@ function showMapDemografia() {
     initMapDemografia();
 }
 
+$('#detalle-grafica-demografia-select-chart').on('change',function () {
+
+    if (this.value === "edad") {
+        initChartEdad();
+    }
+    if (this.value === "sexo") {
+        initChartSexo()
+    }
+    if (this.value === "estado-civil") {
+        initChartEstadoCivil();
+    }
+    if (this.value === "estudio") {
+        initChartEstudio();
+    }
+    if (this.value === "ocupacion") {
+        initChartOcupacion();
+    }
+    if (this.value === "ingresos") {
+        initChartIngresos();
+    }
+});
+
+function showDemografiaBarChart() {
+    hideAllDemografia();
+    $('#detalle-grafica-demografia-chart').removeClass('hidden');
+    $('#detalle-grafica-demografia-select-chart').removeClass('hidden');
+    initChartEdad();
+}
+
 function hideAllDemografia() {
     $('#detalle-grafica-demografia-map').addClass('hidden');
+    $('#detalle-grafica-link').addClass('hidden');
+    $('#detalle-grafica-demografia-chart').addClass('hidden');
+    $('#detalle-grafica-demografia-select-chart').addClass('hidden');
 
 }
 

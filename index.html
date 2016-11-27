@@ -205,7 +205,20 @@
                                 <div id="detalle-grafica-demografia-map" class="hidden"
                                      style="width:100%; height:300px;position: relative; overflow: hidden; background-color: rgb(229, 227, 223);">
                                 </div>
-                                <a id="detalle-grafica-link" href="#">Personas que no estan en el mapa</a>
+                                <a class="hidden" id="detalle-grafica-link" href="#">Personas que no estan en el mapa</a>
+
+                                <select class="form-control with-auto center-block hidden" id="detalle-grafica-demografia-select-chart">
+                                    <option value="edad">Edad</option>
+                                    <option value="sexo">Sexo</option>
+                                    <option value="estado-civil">Estado Civil</option>
+                                    <option value="estudio">Estudio</option>
+                                    <option value="ocupacion">Ocupacion</option>
+                                    <option value="ingresos">Ingresos</option>
+                                </select>
+
+                                <canvas class="hidden" id="detalle-grafica-demografia-chart" width="600" height="200"></canvas>
+
+
                             </div>
 
 
