@@ -22,7 +22,6 @@ function initFirstMap() {
         success: function (data) {
 
             for (var index in data){
-                // console.log(data[index].geo.latitude);
                     var pos=new google.maps.LatLng(data[index].geo.latitude,data[index].geo.longitude);
                     var name=data[index].label;
                     var address=data[index].address;

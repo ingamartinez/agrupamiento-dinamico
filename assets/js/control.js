@@ -3,6 +3,14 @@
  */
 
 $(document).ready(function () {
+    moment.locale('es')
+
+    Chart.defaults.global.responsive = true;
+
+    $.fn.tagcloud.defaults = {
+        size: {start: 20, end: 40, unit: 'pt'},
+        color: {start: '#3850EC', end: '#44E267'}
+    };
 
 });
 
@@ -147,6 +155,9 @@ $('#select-detalle-grafica').on('change',function () {
     if (this.value === "psicografia") {
         showPsicografia();
     }
+    if (this.value === "demografia") {
+        showDemografia();
+    }
 });
 
 $('#select-psicografia').on('change',function () {
@@ -168,6 +179,9 @@ $('#select-psicografia').on('change',function () {
 function showConductual() {
     hideAllPsicografia();
     hidePsicografia();
+    hideAllDemografia();
+    hideDemografia();
+
 
     $('#select-conductuales').removeClass('hidden');
     showUsers();
@@ -209,6 +223,8 @@ function hideConductual() {
 function showPsicografia() {
     hideAllConductual();
     hideConductual();
+    hideAllDemografia();
+    hideDemografia();
 
     $('#select-psicografia').removeClass('hidden');
     $('#select-psicografia').val('personalidad');
@@ -281,6 +297,29 @@ function showDetalleClaseSocial(id) {
     initDetalleClaseSocial(id);
 }
 
+function showDemografia() {
+    hideAllConductual();
+    hideConductual();
+    hideAllPsicografia();
+    hidePsicografia();
+
+    showMapDemografia();
+
+}
+
+function showMapDemografia() {
+    $('#detalle-grafica-demografia-map').removeClass('hidden');
+    initMapDemografia();
+}
+
+function hideAllDemografia() {
+    $('#detalle-grafica-demografia-map').addClass('hidden');
+
+}
+
+function hideDemografia() {
+
+}
 
 
 
