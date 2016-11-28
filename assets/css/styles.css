@@ -37,3 +37,7 @@ ul.usuarios li a:hover {
 .fa-8x {
     font-size: 8em !important;
 }
+
+select{
+    margin-bottom: 10px;
+}

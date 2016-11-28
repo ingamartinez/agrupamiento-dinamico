@@ -81,11 +81,8 @@
                                 <div id="map-second"
                                      style="width:100%; height:300px;position: relative; overflow: hidden; background-color: rgb(229, 227, 223);">
                                 </div>
-
                             </div>
                         </div>
-
-
                     </div>
                 </div>
 
@@ -141,7 +138,7 @@
                     <div class="panel-body">
 
                         <div class="form-group">
-                            <select style="margin-bottom: 10px;" class="form-control with-auto center-block" id="select-detalle-grafica">
+                            <select class="form-control with-auto center-block" id="select-detalle-grafica">
                                 <option value="conductual">Conductual</option>
                                 <option value="psicografia">Psicografia</option>
                                 <option value="demografia">Demografia</option>
@@ -158,6 +155,7 @@
                                 <option value="valores">Valores</option>
                                 <option value="clase-social">Clase Social</option>
                             </select>
+
                             <div id="detalle-grafica-conductuales">
                                 <div id="detalle-grafica-lista-usuarios">
                                     <ul class="usuarios" id="list-usuarios">
@@ -168,36 +166,14 @@
 
                                 <div id="detalle-grafica-flags-segmentos" class="hidden">
                                 </div>
+
                             </div>
 
                             <div id="detalle-grafica-psicografia">
 
-                                <div id="detalle-grafica-personalidad">
-                                    <canvas id="chart-personalidad" width="600" height="200"></canvas>
-                                </div>
-                                <div id="detalle-grafica-detalle-personalidad" class="hidden">
-                                </div>
+                                <canvas id="detalle-grafica-psicografia-chart" class="hidden" width="600" height="200"></canvas>
 
-
-                                <div id="detalle-grafica-estilo-vida" class="hidden">
-                                    <canvas id="chart-estilo-vida" width="600" height="200"></canvas>
-                                </div>
-                                <div id="detalle-grafica-detalle-estilo-vida" class="hidden">
-                                </div>
-
-
-                                <div id="detalle-grafica-valores" class="hidden">
-                                    <canvas id="chart-valores" width="600" height="200"></canvas>
-                                </div>
-                                <div id="detalle-grafica-detalle-valores" class="hidden">
-                                </div>
-
-
-                                <div id="detalle-grafica-clase-social" class="hidden">
-                                    <canvas id="chart-clase-social" width="600" height="200"></canvas>
-                                </div>
-                                <div id="detalle-grafica-detalle-clase-social" class="hidden">
-                                </div>
+                                <div id="detalle-grafica-psicografia-detalle-chart" class="hidden"></div>
 
                             </div>
 
@@ -205,6 +181,7 @@
                                 <div id="detalle-grafica-demografia-map" class="hidden"
                                      style="width:100%; height:300px;position: relative; overflow: hidden; background-color: rgb(229, 227, 223);">
                                 </div>
+
                                 <a class="hidden" id="detalle-grafica-link" href="#">Personas que no estan en el mapa</a>
 
                                 <select class="form-control with-auto center-block hidden" id="detalle-grafica-demografia-select-chart">
@@ -226,23 +203,24 @@
                     </div>
                 </div>
 
-                <div class="panel panel-default hidden">
+                <div class="panel panel-default">
 
                     <div class="panel-body">
                         <h3 class="center-block">Historial</h3>
                         <form action="#">
                             <div class="form-group">
-                                <select class="form-control with-auto center-block" id="select-detalle-grafica-historial">
+                                <select class="form-control with-auto center-block" id="select-detalle-grafica-history">
                                     <option value="conductual">Conductual</option>
-                                    <option value="demogafica">Demogafica</option>
                                     <option value="psicografia">Psicografia</option>
+                                    <option value="demografia">Demografia</option>
+
                                 </select>
-                                <select class="form-control with-auto center-block" id="select-conductuales-historial">
+                                <select class="form-control with-auto center-block" id="select-conductuales-history">
                                     <option value="usuarios">Usuarios</option>
                                     <option value="segmentos">Segmentos</option>
                                 </select>
 
-                                <select class="form-control with-auto center-block hidden" id="select-psicografia-historial">
+                                <select class="form-control with-auto center-block hidden" id="select-psicografia-history">
                                     <option value="personalidad">Personalidad</option>
                                     <option value="estilo-vida">Estilo de Vida</option>
                                     <option value="valores">Valores</option>
@@ -270,13 +248,49 @@
                                     </button>
                                 </div>
 
-                                <div id="detalle-grafica-usuarios-historial">
+                                <div id="detalle-grafica-conductuales-history">
+                                    <div id="detalle-grafica-lista-usuarios-history">
+                                        <ul class="usuarios" id="list-usuarios-history">
+                                        </ul>
+                                    </div>
+                                    <div id="detalle-grafica-flags-usuarios-history" class="hidden">
+                                    </div>
+
+                                    <div id="detalle-grafica-flags-segmentos-history" class="hidden">
+                                    </div>
 
                                 </div>
 
-                                <div id="detalle-grafica-segmentos-historial" class="hidden">
+                                <div id="detalle-grafica-psicografia-history">
+
+                                    <canvas id="detalle-grafica-psicografia-chart-history" class="hidden" width="600" height="200"></canvas>
+
+                                    <div id="detalle-grafica-psicografia-detalle-chart-history" class="hidden"></div>
 
                                 </div>
+
+                                <div id="detalle-grafica-demografia-history">
+                                    <div id="detalle-grafica-demografia-map-history" class="hidden"
+                                         style="width:100%; height:300px;position: relative; overflow: hidden; background-color: rgb(229, 227, 223);">
+                                    </div>
+
+                                    <a class="hidden" id="detalle-grafica-link-history" href="#">Personas que no estan en el mapa</a>
+
+                                    <select class="form-control with-auto center-block hidden" id="detalle-grafica-demografia-select-chart-history">
+                                        <option value="edad">Edad</option>
+                                        <option value="sexo">Sexo</option>
+                                        <option value="estado-civil">Estado Civil</option>
+                                        <option value="estudio">Estudio</option>
+                                        <option value="ocupacion">Ocupacion</option>
+                                        <option value="ingresos">Ingresos</option>
+                                    </select>
+
+                                    <canvas class="hidden" id="detalle-grafica-demografia-chart-history" width="600" height="200"></canvas>
+
+
+                                </div>
+
+
                             </div>
                         </form>
 
@@ -287,7 +301,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 

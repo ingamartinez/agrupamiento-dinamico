@@ -3,7 +3,7 @@
  */
 
 $(document).ready(function () {
-    moment.locale('es')
+    moment.locale('es');
 
     Chart.defaults.global.responsive = true;
 
@@ -204,7 +204,7 @@ function showTagsSegmentos() {
     $('#detalle-grafica-flags-segmentos').removeClass('hidden');
 
     fillSegmentos();
-    
+
 }
 
 function hideAllConductual() {
@@ -232,17 +232,9 @@ function showPsicografia() {
 }
 
 function hideAllPsicografia() {
-    $('#detalle-grafica-personalidad').addClass('hidden');
-    $('#detalle-grafica-detalle-personalidad').addClass('hidden');
+    $('#detalle-grafica-psicografia-chart').addClass('hidden');
+    $('#detalle-grafica-psicografia-detalle-chart').addClass('hidden');
 
-    $('#detalle-grafica-estilo-vida').addClass('hidden');
-    $('#detalle-grafica-detalle-estilo-vida').addClass('hidden');
-
-    $('#detalle-grafica-valores').addClass('hidden');
-    $('#detalle-grafica-detalle-valores').addClass('hidden');
-
-    $('#detalle-grafica-clase-social').addClass('hidden');
-    $('#detalle-grafica-detalle-clase-social').addClass('hidden');
 }
 
 function hidePsicografia() {
@@ -251,13 +243,13 @@ function hidePsicografia() {
 
 function showPersonalidad() {
     hideAllPsicografia();
-    $('#detalle-grafica-personalidad').removeClass('hidden');
+    $('#detalle-grafica-psicografia-chart').removeClass('hidden');
     initChartPersonalidad();
 }
 
 function showDetallePersonalidad(id) {
     hideAllPsicografia();
-    $('#detalle-grafica-detalle-personalidad').removeClass('hidden');
+    $('#detalle-grafica-psicografia-detalle-chart').removeClass('hidden');
     initDetallePersonalidad(id);
 }
 

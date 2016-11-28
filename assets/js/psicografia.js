@@ -8,6 +8,7 @@ $(document).ready(function () {
 
 function initChartPersonalidad() {
     var firstChartData=null;
+    $('#detalle-grafica-psicografia-chart').replaceWith('<canvas id="detalle-grafica-psicografia-chart" width="600" height="200"></canvas>');
 
     $.ajax({
         type: 'GET',
@@ -20,7 +21,7 @@ function initChartPersonalidad() {
 
     function renderChart(data) {
         //Capturar el canvas de la primera grafica
-        var ctx_segmentos = $('#chart-personalidad');
+        var ctx_segmentos = $('#detalle-grafica-psicografia-chart');
 
         //Crear la primera gráfica
         var chartSegmentos = new Chart(ctx_segmentos,{
@@ -59,7 +60,7 @@ function initChartPersonalidad() {
 }
 
 function initDetallePersonalidad(id) {
-    // console.log(id);
+    $('#detalle-grafica-psicografia-detalle-chart').replaceWith('<div id="detalle-grafica-psicografia-detalle-chart"></div>');
     $.ajax({
         type: 'GET',
         url: 'http://localhost:3000/chartPersonalidad/'+id,
@@ -77,13 +78,14 @@ function initDetallePersonalidad(id) {
 
             });
             // console.log(usuarios);
-            document.getElementById('detalle-grafica-detalle-personalidad').innerHTML=details;
+            document.getElementById('detalle-grafica-psicografia-detalle-chart').innerHTML=details;
         }
     });
 }
 
 function initChartEstiloVida() {
     var firstChartData=null;
+    $('#detalle-grafica-psicografia-chart').replaceWith('<canvas id="detalle-grafica-psicografia-chart" width="600" height="200"></canvas>');
 
     $.ajax({
         type: 'GET',
@@ -96,7 +98,7 @@ function initChartEstiloVida() {
 
     function renderChart(data) {
         //Capturar el canvas de la primera grafica
-        var ctx_segmentos = $('#chart-estilo-vida');
+        var ctx_segmentos = $('#detalle-grafica-psicografia-chart');
 
         //Crear la primera gráfica
         var chartSegmentos = new Chart(ctx_segmentos,{
@@ -135,6 +137,7 @@ function initChartEstiloVida() {
 }
 
 function initDetalleEstiloVida(id) {
+$('#detalle-grafica-psicografia-detalle-chart').replaceWith('<div id="detalle-grafica-psicografia-detalle-chart"></div>');
     $.ajax({
         type: 'GET',
         url: 'http://localhost:3000/chartEstiloVida/'+id,
@@ -152,13 +155,14 @@ function initDetalleEstiloVida(id) {
 
             });
             // console.log(usuarios);
-            document.getElementById('detalle-grafica-detalle-estilo-vida').innerHTML=details;
+            document.getElementById('detalle-grafica-psicografia-detalle-chart').innerHTML=details;
         }
     });
 }
 
 function initChartValores() {
     var firstChartData=null;
+    $('#detalle-grafica-psicografia-chart').replaceWith('<canvas id="detalle-grafica-psicografia-chart" width="600" height="200"></canvas>');
 
     $.ajax({
         type: 'GET',
@@ -171,7 +175,7 @@ function initChartValores() {
 
     function renderChart(data) {
         //Capturar el canvas de la primera grafica
-        var ctx_segmentos = $('#chart-valores');
+        var ctx_segmentos = $('#detalle-grafica-psicografia-chart');
 
         //Crear la primera gráfica
         var chartSegmentos = new Chart(ctx_segmentos,{
@@ -210,6 +214,7 @@ function initChartValores() {
 }
 
 function initDetalleValores(id) {
+    $('#detalle-grafica-psicografia-detalle-chart').replaceWith('<div id="detalle-grafica-psicografia-detalle-chart"></div>');
     $.ajax({
         type: 'GET',
         url: 'http://localhost:3000/chartValores/'+id,
@@ -227,13 +232,14 @@ function initDetalleValores(id) {
 
             });
             // console.log(usuarios);
-            document.getElementById('detalle-grafica-detalle-valores').innerHTML=details;
+            document.getElementById('detalle-grafica-psicografia-detalle-chart').innerHTML=details;
         }
     });
 }
 
 function initChartClaseSocial() {
     var firstChartData=null;
+    $('#detalle-grafica-psicografia-chart').replaceWith('<canvas id="detalle-grafica-psicografia-chart" width="600" height="200"></canvas>');
 
     $.ajax({
         type: 'GET',
@@ -246,7 +252,7 @@ function initChartClaseSocial() {
 
     function renderChart(data) {
         //Capturar el canvas de la primera grafica
-        var ctx_segmentos = $('#chart-clase-social');
+        var ctx_segmentos = $('#detalle-grafica-psicografia-chart');
 
         //Crear la primera gráfica
         var chartSegmentos = new Chart(ctx_segmentos,{
@@ -285,6 +291,7 @@ function initChartClaseSocial() {
 }
 
 function initDetalleClaseSocial(id) {
+    $('#detalle-grafica-psicografia-detalle-chart').replaceWith('<div id="detalle-grafica-psicografia-detalle-chart"></div>');
     $.ajax({
         type: 'GET',
         url: 'http://localhost:3000/chartClaseSocial/'+id,
@@ -302,7 +309,7 @@ function initDetalleClaseSocial(id) {
 
             });
             // console.log(usuarios);
-            document.getElementById('detalle-grafica-detalle-clase-social').innerHTML=details;
+            document.getElementById('detalle-grafica-psicografia-detalle-chart').innerHTML=details;
         }
     });
 }
