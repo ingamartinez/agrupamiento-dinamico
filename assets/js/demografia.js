@@ -139,7 +139,7 @@ function initChartSexo() {
                 labels: labels,
                 datasets: [
                     {
-                        label:"Grafico Edad",
+                        label:"Grafico Sexo",
                         backgroundColor:backgroundColor,
                         borderColor:borderColor,
                         borderWidth:1,
@@ -191,7 +191,7 @@ function initChartEstadoCivil() {
                 labels: labels,
                 datasets: [
                     {
-                        label:"Grafico Edad",
+                        label:"Grafico Estado Civil",
                         backgroundColor:backgroundColor,
                         borderColor:borderColor,
                         borderWidth:1,
@@ -243,7 +243,7 @@ function initChartEstudio() {
                 labels: labels,
                 datasets: [
                     {
-                        label:"Grafico Edad",
+                        label:"Grafico Estudio",
                         backgroundColor:backgroundColor,
                         borderColor:borderColor,
                         borderWidth:1,
@@ -295,7 +295,7 @@ function initChartOcupacion() {
                 labels: labels,
                 datasets: [
                     {
-                        label:"Grafico Edad",
+                        label:"Grafico Ocupacion",
                         backgroundColor:backgroundColor,
                         borderColor:borderColor,
                         borderWidth:1,
@@ -347,7 +347,7 @@ function initChartIngresos() {
                 labels: labels,
                 datasets: [
                     {
-                        label:"Grafico Edad",
+                        label:"Grafico Ingreso",
                         backgroundColor:backgroundColor,
                         borderColor:borderColor,
                         borderWidth:1,

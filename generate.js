@@ -91,7 +91,7 @@ module.exports = function () {
                     }
                 }),
                 backgroundColor: '#'+fakerator.random.hex(6),
-                details:_.times(fakerator.random.number(1),function (n) {
+                details:_.times(1,function (n) {
                     return {
                         mujer: {
                             porcentaje: fakerator.random.number(1,100)+'%',
@@ -126,7 +126,7 @@ module.exports = function () {
                     }
                 }),
                 backgroundColor: '#'+fakerator.random.hex(6),
-                details:_.times(fakerator.random.number(1),function (n) {
+                details:_.times(1,function (n) {
                     return {
                         mujer: {
                             porcentaje: fakerator.random.number(1,100)+'%',
@@ -161,7 +161,7 @@ module.exports = function () {
                     }
                 }),
                 backgroundColor: '#'+fakerator.random.hex(6),
-                details:_.times(fakerator.random.number(1),function (n) {
+                details:_.times(1,function (n) {
                     return {
                         mujer: {
                             porcentaje: fakerator.random.number(1,100)+'%',
@@ -196,7 +196,7 @@ module.exports = function () {
                     }
                 }),
                 backgroundColor: '#'+fakerator.random.hex(6),
-                details:_.times(fakerator.random.number(1),function (n) {
+                details:_.times(1,function (n) {
                     return {
                         mujer: {
                             porcentaje: fakerator.random.number(1,100)+'%',
