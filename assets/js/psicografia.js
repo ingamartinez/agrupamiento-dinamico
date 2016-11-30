@@ -12,7 +12,10 @@ function initChartPersonalidad() {
 
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/chartPersonalidad?segmento='+id,
+        data:{
+            segmento:idSegmento
+        },
+        url: 'http://localhost:3000/chartPersonalidad',
         success: function (data) {
             renderChart(data);
             firstChartData=data;
@@ -89,7 +92,10 @@ function initChartEstiloVida() {
 
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/chartEstiloVida?segmento='+id,
+        data:{
+            segmento:idSegmento
+        },
+        url: 'http://localhost:3000/chartEstiloVida',
         success: function (data) {
             renderChart(data);
             firstChartData=data;
@@ -166,7 +172,10 @@ function initChartValores() {
 
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/chartValores?segmento='+id,
+        data:{
+            segmento:idSegmento
+        },
+        url: 'http://localhost:3000/chartValores',
         success: function (data) {
             renderChart(data);
             firstChartData=data;
@@ -243,7 +252,10 @@ function initChartClaseSocial() {
 
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/chartClaseSocial?segmento='+id,
+        data:{
+            segmento:idSegmento
+        },
+        url: 'http://localhost:3000/chartClaseSocial',
         success: function (data) {
             renderChart(data);
             firstChartData=data;
@@ -310,6 +322,343 @@ function initDetalleClaseSocial(id) {
             });
             // console.log(usuarios);
             document.getElementById('detalle-grafica-psicografia-detalle-chart').innerHTML=details;
+        }
+    });
+}
+
+/*
+    History
+ */
+
+
+function initHistoryChartPersonalidad() {
+    var firstChartData=null;
+    $('#detalle-grafica-psicografia-chart-history').replaceWith('<canvas id="detalle-grafica-psicografia-chart-history" width="600" height="200"></canvas>');
+
+    $.ajax({
+        type: 'GET',
+        data:{
+            segmento:idSegmento,
+            dia:$('#detalle-grafica-select-dia').val(),
+            mes:$('#detalle-grafica-select-mes').val(),
+            anio:$('#detalle-grafica-select-año').val()
+        },
+        url: 'http://localhost:3000/chartPersonalidad',
+        success: function (data) {
+            renderChart(data);
+            firstChartData=data;
+        }
+    });
+
+    function renderChart(data) {
+        //Capturar el canvas de la primera grafica
+        var ctx_segmentos = $('#detalle-grafica-psicografia-chart-history');
+
+        //Crear la primera gráfica
+        var chartSegmentos = new Chart(ctx_segmentos,{
+            type: 'bubble',
+            data: {
+                datasets:data
+            },
+            options: {
+                elements: {
+                    points: {
+                        borderWidth: 1,
+                        borderColor: 'rgb(0, 0, 0)'
+                    }
+                }
+            }
+        });
+
+        ctx_segmentos.unbind( "click" );
+        ctx_segmentos.off( "click" );
+
+        //Capturar el index del primer Dataset que fue seleccionado en la PRIMERA grafica
+        //Utilizado para poder compararlo con el objeto que llegue por la petición AJAX
+        ctx_segmentos.click(function(e) {
+            var activePoints = chartSegmentos.getDatasetAtEvent(e);
+//            console.log(activePoints);
+            if (activePoints.length > 0) {
+                var datasetIndex = activePoints[0]["_datasetIndex"];
+                firstChartData.forEach(function (chartData,chartDataIndex) {
+                    if (chartDataIndex === datasetIndex){
+                        showDetallePersonalidadHistory(chartData.id);
+                    }
+                })
+            }
+        });
+    }
+}
+
+function initHistoryDetallePersonalidad(id) {
+    $('#detalle-grafica-psicografia-detalle-chart-history').replaceWith('<div id="detalle-grafica-psicografia-detalle-chart-history"></div>');
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/chartPersonalidad/'+id,
+        success: function (data) {
+            var details="";
+            data.details.forEach(function (detail) {
+                // tags+=  '<a href="#" rel="'+Math.floor((Math.random() * 5) + 1)+'">'+n+'</a> ';
+                for (var a in detail){
+                    console.log();
+                    details+=   '<div class="col-lg-6 col-md-6 col-sm-6 text-center">'+
+                        '<i class="fa '+detail[a].icon+' fa-8x"></i>'+
+                        '<h3>'+detail[a].porcentaje+'</h3>'+
+                        '</div> ';
+                }
+
+            });
+            // console.log(usuarios);
+            document.getElementById('detalle-grafica-psicografia-detalle-chart-history').innerHTML=details;
+        }
+    });
+}
+
+function initHistoryChartEstiloVida() {
+    var firstChartData=null;
+    $('#detalle-grafica-psicografia-chart-history').replaceWith('<canvas id="detalle-grafica-psicografia-chart-history" width="600" height="200"></canvas>');
+
+    $.ajax({
+        type: 'GET',
+        data:{
+            segmento:idSegmento,
+            dia:$('#detalle-grafica-select-dia').val(),
+            mes:$('#detalle-grafica-select-mes').val(),
+            anio:$('#detalle-grafica-select-año').val()
+        },
+        url: 'http://localhost:3000/chartEstiloVida',
+        success: function (data) {
+            renderChart(data);
+            firstChartData=data;
+        }
+    });
+
+    function renderChart(data) {
+        //Capturar el canvas de la primera grafica
+        var ctx_segmentos = $('#detalle-grafica-psicografia-chart-history');
+
+        //Crear la primera gráfica
+        var chartSegmentos = new Chart(ctx_segmentos,{
+            type: 'bubble',
+            data: {
+                datasets:data
+            },
+            options: {
+                elements: {
+                    points: {
+                        borderWidth: 1,
+                        borderColor: 'rgb(0, 0, 0)'
+                    }
+                }
+            }
+        });
+
+        ctx_segmentos.unbind( "click" );
+        ctx_segmentos.off( "click" );
+
+        //Capturar el index del primer Dataset que fue seleccionado en la PRIMERA grafica
+        //Utilizado para poder compararlo con el objeto que llegue por la petición AJAX
+        ctx_segmentos.click(function(e) {
+            var activePoints = chartSegmentos.getDatasetAtEvent(e);
+//            console.log(activePoints);
+            if (activePoints.length > 0) {
+                var datasetIndex = activePoints[0]["_datasetIndex"];
+                firstChartData.forEach(function (chartData,chartDataIndex) {
+                    if (chartDataIndex === datasetIndex){
+                        showDetalleEstiloVidaHistory(chartData.id);
+                    }
+                })
+            }
+        });
+    }
+}
+
+function initHistoryDetalleEstiloVida(id) {
+    $('#detalle-grafica-psicografia-detalle-chart-history').replaceWith('<div id="detalle-grafica-psicografia-detalle-chart-history"></div>');
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/chartEstiloVida/'+id,
+        success: function (data) {
+            var details="";
+            data.details.forEach(function (detail) {
+                // tags+=  '<a href="#" rel="'+Math.floor((Math.random() * 5) + 1)+'">'+n+'</a> ';
+                for (var a in detail){
+                    console.log();
+                    details+=   '<div class="col-lg-6 col-md-6 col-sm-6 text-center">'+
+                        '<i class="fa '+detail[a].icon+' fa-8x"></i>'+
+                        '<h3>'+detail[a].porcentaje+'</h3>'+
+                        '</div> ';
+                }
+
+            });
+            // console.log(usuarios);
+            document.getElementById('detalle-grafica-psicografia-detalle-chart-history').innerHTML=details;
+        }
+    });
+}
+
+function initHistoryChartValores() {
+    var firstChartData=null;
+    $('#detalle-grafica-psicografia-chart-history').replaceWith('<canvas id="detalle-grafica-psicografia-chart-history" width="600" height="200"></canvas>');
+
+    $.ajax({
+        type: 'GET',
+        data:{
+            segmento:idSegmento,
+            dia:$('#detalle-grafica-select-dia').val(),
+            mes:$('#detalle-grafica-select-mes').val(),
+            anio:$('#detalle-grafica-select-año').val()
+        },
+        url: 'http://localhost:3000/chartValores',
+        success: function (data) {
+            renderChart(data);
+            firstChartData=data;
+        }
+    });
+
+    function renderChart(data) {
+        //Capturar el canvas de la primera grafica
+        var ctx_segmentos = $('#detalle-grafica-psicografia-chart-history');
+
+        //Crear la primera gráfica
+        var chartSegmentos = new Chart(ctx_segmentos,{
+            type: 'bubble',
+            data: {
+                datasets:data
+            },
+            options: {
+                elements: {
+                    points: {
+                        borderWidth: 1,
+                        borderColor: 'rgb(0, 0, 0)'
+                    }
+                }
+            }
+        });
+
+        ctx_segmentos.unbind( "click" );
+        ctx_segmentos.off( "click" );
+
+        //Capturar el index del primer Dataset que fue seleccionado en la PRIMERA grafica
+        //Utilizado para poder compararlo con el objeto que llegue por la petición AJAX
+        ctx_segmentos.click(function(e) {
+            var activePoints = chartSegmentos.getDatasetAtEvent(e);
+//            console.log(activePoints);
+            if (activePoints.length > 0) {
+                var datasetIndex = activePoints[0]["_datasetIndex"];
+                firstChartData.forEach(function (chartData,chartDataIndex) {
+                    if (chartDataIndex === datasetIndex){
+                        showDetalleValoresHistory(chartData.id);
+                    }
+                })
+            }
+        });
+    }
+}
+
+function initHistoryDetalleValores(id) {
+    $('#detalle-grafica-psicografia-detalle-chart-history').replaceWith('<div id="detalle-grafica-psicografia-detalle-chart-history"></div>');
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/chartValores/'+id,
+        success: function (data) {
+            var details="";
+            data.details.forEach(function (detail) {
+                // tags+=  '<a href="#" rel="'+Math.floor((Math.random() * 5) + 1)+'">'+n+'</a> ';
+                for (var a in detail){
+                    console.log();
+                    details+=   '<div class="col-lg-6 col-md-6 col-sm-6 text-center">'+
+                        '<i class="fa '+detail[a].icon+' fa-8x"></i>'+
+                        '<h3>'+detail[a].porcentaje+'</h3>'+
+                        '</div> ';
+                }
+
+            });
+            // console.log(usuarios);
+            document.getElementById('detalle-grafica-psicografia-detalle-chart-history').innerHTML=details;
+        }
+    });
+}
+
+function initHistoryChartClaseSocial() {
+    var firstChartData=null;
+    $('#detalle-grafica-psicografia-chart-history').replaceWith('<canvas id="detalle-grafica-psicografia-chart-history" width="600" height="200"></canvas>');
+
+    $.ajax({
+        type: 'GET',
+        data:{
+            segmento:idSegmento,
+            dia:$('#detalle-grafica-select-dia').val(),
+            mes:$('#detalle-grafica-select-mes').val(),
+            anio:$('#detalle-grafica-select-año').val()
+        },
+        url: 'http://localhost:3000/chartClaseSocial',
+        success: function (data) {
+            renderChart(data);
+            firstChartData=data;
+        }
+    });
+
+    function renderChart(data) {
+        //Capturar el canvas de la primera grafica
+        var ctx_segmentos = $('#detalle-grafica-psicografia-chart-history');
+
+        //Crear la primera gráfica
+        var chartSegmentos = new Chart(ctx_segmentos,{
+            type: 'bubble',
+            data: {
+                datasets:data
+            },
+            options: {
+                elements: {
+                    points: {
+                        borderWidth: 1,
+                        borderColor: 'rgb(0, 0, 0)'
+                    }
+                }
+            }
+        });
+
+        ctx_segmentos.unbind( "click" );
+        ctx_segmentos.off( "click" );
+
+        //Capturar el index del primer Dataset que fue seleccionado en la PRIMERA grafica
+        //Utilizado para poder compararlo con el objeto que llegue por la petición AJAX
+        ctx_segmentos.click(function(e) {
+            var activePoints = chartSegmentos.getDatasetAtEvent(e);
+//            console.log(activePoints);
+            if (activePoints.length > 0) {
+                var datasetIndex = activePoints[0]["_datasetIndex"];
+                firstChartData.forEach(function (chartData,chartDataIndex) {
+                    if (chartDataIndex === datasetIndex){
+                        showDetalleClaseSocialHistory(chartData.id);
+                    }
+                })
+            }
+        });
+    }
+}
+
+function initHistoryDetalleClaseSocial(id) {
+    $('#detalle-grafica-psicografia-detalle-chart-history').replaceWith('<div id="detalle-grafica-psicografia-detalle-chart-history"></div>');
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/chartClaseSocial/'+id,
+        success: function (data) {
+            var details="";
+            data.details.forEach(function (detail) {
+                // tags+=  '<a href="#" rel="'+Math.floor((Math.random() * 5) + 1)+'">'+n+'</a> ';
+                for (var a in detail){
+                    console.log();
+                    details+=   '<div class="col-lg-6 col-md-6 col-sm-6 text-center">'+
+                        '<i class="fa '+detail[a].icon+' fa-8x"></i>'+
+                        '<h3>'+detail[a].porcentaje+'</h3>'+
+                        '</div> ';
+                }
+
+            });
+            // console.log(usuarios);
+            document.getElementById('detalle-grafica-psicografia-detalle-chart-history').innerHTML=details;
         }
     });
 }

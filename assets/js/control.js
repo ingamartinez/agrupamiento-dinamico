@@ -204,7 +204,6 @@ function showTagsSegmentos() {
     $('#detalle-grafica-flags-segmentos').removeClass('hidden');
 
     fillSegmentos();
-
 }
 
 function hideAllConductual() {
@@ -344,6 +343,236 @@ function hideAllDemografia() {
 function hideDemografia() {
 
 }
+
+/*
+    History
+ */
+
+$('#select-detalle-grafica-history').on('change',function () {
+    hideSelectsHistory();
+
+    if (this.value === "conductual") {
+        $('#select-conductuales-history').removeClass('hidden');
+    }
+    if (this.value === "psicografia") {
+        $('#select-psicografia-history').removeClass('hidden');
+    }
+});
+
+function hideSelectsHistory() {
+    $('#select-conductuales-history').addClass('hidden');
+    $('#select-psicografia-history').addClass('hidden');
+    $('#detalle-grafica-demografia-select-chart-history').addClass('hidden');
+}
+
+$('#detalle-grafica-button-send').on('click',function () {
+
+    var detalleGrafica=$('#select-detalle-grafica-history').find('option:selected').val();
+    var conductuales=$('#select-conductuales-history').find('option:selected').val();
+    var psicografia=$('#select-psicografia-history').find('option:selected').val();
+
+
+    if (detalleGrafica==='conductual'){
+        hideAllConductualHistory();
+        hideAllDemografiaHistory();
+        hideAllPsicografiaHistory();
+
+        switch (conductuales){
+            case 'usuarios':
+                showUsersHistory();
+                break;
+            case 'segmentos':
+                showTagsSegmentosHistory();
+                break;
+            default:
+        }
+    }
+
+    if (detalleGrafica==='psicografia'){
+        hideAllConductualHistory();
+        hideAllDemografiaHistory();
+        hideAllPsicografiaHistory();
+
+        switch (psicografia){
+            case 'personalidad':
+                showPersonalidadHistory();
+                break;
+            case 'estilo-vida':
+                showEstiloVidaHistory();
+                break;
+            case 'valores':
+                showValoresHistory();
+                break;
+            case 'clase-social':
+                showClaseSocialHistory();
+                break;
+            default:
+        }
+    }
+
+    if (detalleGrafica==='demografia'){
+        hideAllConductualHistory();
+        hideAllDemografiaHistory();
+        hideAllPsicografiaHistory();
+
+        showDemografiaHistory();
+    }
+});
+
+
+/*
+    Conductual History
+ */
+
+function showUsersHistory() {
+
+    $('#detalle-grafica-lista-usuarios-history').removeClass('hidden');
+
+    fillUsuariosHistory();
+}
+
+function showTagsUserHistory() {
+    hideAllConductualHistory();
+    $('#detalle-grafica-flags-usuarios-history').removeClass('hidden');
+}
+
+function showTagsSegmentosHistory() {
+    hideAllConductualHistory();
+    $('#detalle-grafica-flags-segmentos-history').removeClass('hidden');
+    fillSegmentosHistory();
+}
+
+function hideAllConductualHistory() {
+    $('#detalle-grafica-flags-usuarios-history').addClass('hidden');
+    $('#detalle-grafica-lista-usuarios-history').addClass('hidden');
+    $('#detalle-grafica-flags-segmentos-history').addClass('hidden');
+}
+
+/*
+    Psicografia History
+ */
+
+function showPersonalidadHistory() {
+    hideAllPsicografiaHistory();
+    $('#detalle-grafica-psicografia-chart-history').removeClass('hidden');
+    initHistoryChartPersonalidad();
+}
+
+function showDetallePersonalidadHistory(id) {
+    hideAllPsicografiaHistory();
+    $('#detalle-grafica-psicografia-detalle-chart-history').removeClass('hidden');
+    initHistoryDetallePersonalidad(id);
+}
+
+function showEstiloVidaHistory() {
+    hideAllPsicografiaHistory();
+    $('#detalle-grafica-psicografia-chart-history').removeClass('hidden');
+    initHistoryChartEstiloVida();
+}
+
+function showDetalleEstiloVidaHistory(id) {
+    hideAllPsicografiaHistory();
+    $('#detalle-grafica-psicografia-detalle-chart-history').removeClass('hidden');
+    initHistoryDetalleEstiloVida(id);
+}
+
+function showValoresHistory() {
+    hideAllPsicografiaHistory();
+    $('#detalle-grafica-psicografia-chart-history').removeClass('hidden');
+    initHistoryChartValores();
+}
+
+function showDetalleValoresHistory(id) {
+    hideAllPsicografiaHistory();
+    $('#detalle-grafica-psicografia-detalle-chart-history').removeClass('hidden');
+    initHistoryDetalleValores(id);
+}
+
+function showClaseSocialHistory() {
+    hideAllPsicografiaHistory();
+    $('#detalle-grafica-psicografia-chart-history').removeClass('hidden');
+    initHistoryChartClaseSocial();
+}
+
+function showDetalleClaseSocialHistory(id) {
+    hideAllPsicografiaHistory();
+    $('#detalle-grafica-psicografia-detalle-chart-history').removeClass('hidden');
+    initHistoryDetalleClaseSocial(id);
+}
+
+function hideAllPsicografiaHistory() {
+    $('#detalle-grafica-psicografia-chart-history').addClass('hidden');
+    $('#detalle-grafica-psicografia-detalle-chart-history').addClass('hidden');
+
+}
+
+/*
+    Demografia History
+ */
+
+function showDemografiaHistory() {
+    hideAllConductualHistory();
+    hideAllPsicografiaHistory();
+
+    showMapDemografiaHistory();
+
+}
+
+function showMapDemografiaHistory() {
+    $('#detalle-grafica-demografia-map-history').removeClass('hidden');
+    initHistoryMapDemografia();
+}
+
+$('#detalle-grafica-demografia-select-chart-history').on('change',function () {
+
+    if (this.value === "edad") {
+        initHistoryChartEdad();
+    }
+    if (this.value === "sexo") {
+        initHistoryChartSexo()
+    }
+    if (this.value === "estado-civil") {
+        initHistoryChartEstadoCivil();
+    }
+    if (this.value === "estudio") {
+        initHistoryChartEstudio();
+    }
+    if (this.value === "ocupacion") {
+        initHistoryChartOcupacion();
+    }
+    if (this.value === "ingresos") {
+        initHistoryChartIngresos();
+    }
+
+});
+
+function showDemografiaBarChartHistory() {
+    hideAllDemografiaHistory();
+    $('#detalle-grafica-demografia-chart-history').removeClass('hidden');
+    $('#detalle-grafica-demografia-select-chart-history').removeClass('hidden');
+    $('#detalle-grafica-demografia-select-chart-history').val('edad');
+    initHistoryChartEdad();
+}
+
+function hideAllDemografiaHistory() {
+    $('#detalle-grafica-demografia-map-history').addClass('hidden');
+    $('#detalle-grafica-link-history').addClass('hidden');
+    $('#detalle-grafica-demografia-chart-history').addClass('hidden');
+    $('#detalle-grafica-demografia-select-chart-history').addClass('hidden');
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
