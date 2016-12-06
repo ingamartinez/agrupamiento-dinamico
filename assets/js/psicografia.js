@@ -15,7 +15,7 @@ function initChartPersonalidad() {
         data:{
             segmento:idSegmento
         },
-        url: 'http://localhost:3000/chartPersonalidad',
+        url: url.chartPersonalidad,
         success: function (data) {
             renderChart(data);
             firstChartData=data;
@@ -66,7 +66,7 @@ function initDetallePersonalidad(id) {
     $('#detalle-grafica-psicografia-detalle-chart').replaceWith('<div id="detalle-grafica-psicografia-detalle-chart"></div>');
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/chartPersonalidad/'+id,
+        url: url.chartPersonalidad+'/'+id,
         success: function (data) {
             var details="";
             data.details.forEach(function (detail) {
@@ -95,7 +95,7 @@ function initChartEstiloVida() {
         data:{
             segmento:idSegmento
         },
-        url: 'http://localhost:3000/chartEstiloVida',
+        url: url.chartEstiloVida,
         success: function (data) {
             renderChart(data);
             firstChartData=data;
@@ -146,7 +146,7 @@ function initDetalleEstiloVida(id) {
 $('#detalle-grafica-psicografia-detalle-chart').replaceWith('<div id="detalle-grafica-psicografia-detalle-chart"></div>');
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/chartEstiloVida/'+id,
+        url: url.chartEstiloVida+'/'+id,
         success: function (data) {
             var details="";
             data.details.forEach(function (detail) {
@@ -175,7 +175,7 @@ function initChartValores() {
         data:{
             segmento:idSegmento
         },
-        url: 'http://localhost:3000/chartValores',
+        url: url.chartValores,
         success: function (data) {
             renderChart(data);
             firstChartData=data;
@@ -226,7 +226,7 @@ function initDetalleValores(id) {
     $('#detalle-grafica-psicografia-detalle-chart').replaceWith('<div id="detalle-grafica-psicografia-detalle-chart"></div>');
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/chartValores/'+id,
+        url: url.chartValores+'/'+id,
         success: function (data) {
             var details="";
             data.details.forEach(function (detail) {
@@ -255,7 +255,7 @@ function initChartClaseSocial() {
         data:{
             segmento:idSegmento
         },
-        url: 'http://localhost:3000/chartClaseSocial',
+        url: url.chartClaseSocial,
         success: function (data) {
             renderChart(data);
             firstChartData=data;
@@ -306,7 +306,7 @@ function initDetalleClaseSocial(id) {
     $('#detalle-grafica-psicografia-detalle-chart').replaceWith('<div id="detalle-grafica-psicografia-detalle-chart"></div>');
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/chartClaseSocial/'+id,
+        url: url.chartClaseSocial+'/'+id,
         success: function (data) {
             var details="";
             data.details.forEach(function (detail) {
@@ -343,7 +343,7 @@ function initHistoryChartPersonalidad() {
             mes:$('#detalle-grafica-select-mes').val(),
             anio:$('#detalle-grafica-select-año').val()
         },
-        url: 'http://localhost:3000/chartPersonalidad',
+        url: url.chartPersonalidadHistory,
         success: function (data) {
             renderChart(data);
             firstChartData=data;
@@ -394,7 +394,7 @@ function initHistoryDetallePersonalidad(id) {
     $('#detalle-grafica-psicografia-detalle-chart-history').replaceWith('<div id="detalle-grafica-psicografia-detalle-chart-history"></div>');
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/chartPersonalidad/'+id,
+        url: url.chartPersonalidadHistory+'/'+id,
         success: function (data) {
             var details="";
             data.details.forEach(function (detail) {
@@ -426,7 +426,7 @@ function initHistoryChartEstiloVida() {
             mes:$('#detalle-grafica-select-mes').val(),
             anio:$('#detalle-grafica-select-año').val()
         },
-        url: 'http://localhost:3000/chartEstiloVida',
+        url: url.chartEstiloVidaHistory,
         success: function (data) {
             renderChart(data);
             firstChartData=data;
@@ -477,7 +477,7 @@ function initHistoryDetalleEstiloVida(id) {
     $('#detalle-grafica-psicografia-detalle-chart-history').replaceWith('<div id="detalle-grafica-psicografia-detalle-chart-history"></div>');
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/chartEstiloVida/'+id,
+        url: url.chartEstiloVidaHistory+'/'+id,
         success: function (data) {
             var details="";
             data.details.forEach(function (detail) {
@@ -509,7 +509,7 @@ function initHistoryChartValores() {
             mes:$('#detalle-grafica-select-mes').val(),
             anio:$('#detalle-grafica-select-año').val()
         },
-        url: 'http://localhost:3000/chartValores',
+        url: url.chartValoresHistory,
         success: function (data) {
             renderChart(data);
             firstChartData=data;
@@ -560,7 +560,7 @@ function initHistoryDetalleValores(id) {
     $('#detalle-grafica-psicografia-detalle-chart-history').replaceWith('<div id="detalle-grafica-psicografia-detalle-chart-history"></div>');
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/chartValores/'+id,
+        url: url.chartValoresHistory+'/'+id,
         success: function (data) {
             var details="";
             data.details.forEach(function (detail) {
@@ -592,7 +592,7 @@ function initHistoryChartClaseSocial() {
             mes:$('#detalle-grafica-select-mes').val(),
             anio:$('#detalle-grafica-select-año').val()
         },
-        url: 'http://localhost:3000/chartClaseSocial',
+        url: url.chartClaseSocialHistory,
         success: function (data) {
             renderChart(data);
             firstChartData=data;
@@ -643,7 +643,7 @@ function initHistoryDetalleClaseSocial(id) {
     $('#detalle-grafica-psicografia-detalle-chart-history').replaceWith('<div id="detalle-grafica-psicografia-detalle-chart-history"></div>');
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/chartClaseSocial/'+id,
+        url: url.chartClaseSocialHistory+'/'+id,
         success: function (data) {
             var details="";
             data.details.forEach(function (detail) {

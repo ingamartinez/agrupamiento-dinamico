@@ -30,7 +30,7 @@ function fillUsuarios(id) {
         data: {
             segmento:idSegmento
         },
-        url: 'http://localhost:3000/usuarios',
+        url: url.listAllUsers,
         success: function (data) {
             var usuarios="";
             data.forEach(function (n) {
@@ -48,7 +48,7 @@ function fillUsuarios(id) {
 function fillTags(idUser) {
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/usuarios/'+idUser,
+        url: url.listAllUsers+'/'+idUser,
         success: function (data) {
             var tags="";
             data.tags.forEach(function (n) {
@@ -67,7 +67,7 @@ function fillTags(idUser) {
 function fillSegmentos() {
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/firstChart/'+idSegmento,
+        url: url.listTagSegmento+'/'+idSegmento,
         success: function (data) {
             var tags="";
             data.tags.forEach(function (n) {
@@ -99,7 +99,7 @@ function fillUsuariosHistory(id) {
             mes:$('#detalle-grafica-select-mes').val(),
             anio:$('#detalle-grafica-select-año').val()
         },
-        url: 'http://localhost:3000/usuarios',
+        url: url.listAllUsersHistory,
         success: function (data) {
             var usuarios="";
             data.forEach(function (n) {
@@ -117,7 +117,7 @@ function fillUsuariosHistory(id) {
 function fillTagsHistory(idUser) {
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/usuarios/'+idUser,
+        url: url.listAllUsersHistory+'/'+idUser,
         success: function (data) {
             var tags="";
             data.tags.forEach(function (n) {
@@ -141,7 +141,7 @@ function fillSegmentosHistory() {
             mes:$('#detalle-grafica-select-mes').val(),
             anio:$('#detalle-grafica-select-año').val()
         },
-        url: 'http://localhost:3000/firstChart/'+idSegmento,
+        url: url.listTagSegmentoHistory+'/'+idSegmento,
         success: function (data) {
             var tags="";
             data.tags.forEach(function (n) {

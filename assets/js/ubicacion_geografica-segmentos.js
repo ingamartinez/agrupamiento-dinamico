@@ -25,7 +25,7 @@ function renderFirstChart() {
 
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/firstChart',
+        url: url.firstChartSegmentosGrafico,
         success: function (data) {
             renderChart(data);
             firstChartData=data;
@@ -73,7 +73,7 @@ function renderSecondChart() {
     var secondChartData=null;
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/secondChart',
+        url: url.secondChartSegmentosGrafico,
         success: function (data) {
             renderChart(data);
             secondChartData=data;
@@ -132,7 +132,7 @@ function renderHistoryChart() {
             mes:$('#segmentos-select-mes').val(),
             anio:$('#segmentos-select-año').val()
         },
-        url: 'http://localhost:3000/historyChart',
+        url: url.thirdChartSegmentosGrafico,
         success: function (data) {
             renderChart(data);
             historyChartData=data;

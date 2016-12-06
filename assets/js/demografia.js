@@ -26,7 +26,7 @@ function initMapDemografia() {
         data:{
           segmento:idSegmento
         },
-        url: 'http://localhost:3000/firstChart',
+        url: url.mapDemografia,
         success: function (data) {
 
             if (_.isEmpty(data) || data.length<=0){
@@ -75,7 +75,7 @@ function initChartEdad() {
         data:{
             idMarketDemografia:idMarketDemografia
         },
-        url: 'http://localhost:3000/chartEdad',
+        url: url.chartEdad,
         success: function (data) {
             renderChart(data);
         }
@@ -130,7 +130,7 @@ function initChartSexo() {
         data:{
             idMarketDemografia:idMarketDemografia
         },
-        url: 'http://localhost:3000/chartSexo',
+        url: url.chartSexo,
         success: function (data) {
             renderChart(data);
         }
@@ -185,7 +185,7 @@ function initChartEstadoCivil() {
         data:{
             idMarketDemografia:idMarketDemografia
         },
-        url: 'http://localhost:3000/chartEstadoCivil',
+        url: url.chartEstadoCivil,
         success: function (data) {
             renderChart(data);
         }
@@ -240,7 +240,7 @@ function initChartEstudio() {
         data:{
             idMarketDemografia:idMarketDemografia
         },
-        url: 'http://localhost:3000/chartEstudio',
+        url: url.chartEstudio,
         success: function (data) {
             renderChart(data);
         }
@@ -295,7 +295,7 @@ function initChartOcupacion() {
         data:{
             idMarketDemografia:idMarketDemografia
         },
-        url: 'http://localhost:3000/chartOcupacion',
+        url: url.chartOcupacion,
         success: function (data) {
             renderChart(data);
         }
@@ -350,7 +350,7 @@ function initChartIngresos() {
         data:{
             idMarketDemografia:idMarketDemografia
         },
-        url: 'http://localhost:3000/chartIngresos',
+        url: url.chartIngresos,
         success: function (data) {
             renderChart(data);
         }
@@ -421,7 +421,7 @@ function initHistoryMapDemografia() {
             mes:$('#detalle-grafica-select-mes').val(),
             anio:$('#detalle-grafica-select-año').val()
         },
-        url: 'http://localhost:3000/firstChart',
+        url: url.mapDemografiaHistory,
         success: function (data) {
 
             if (_.isEmpty(data) || data.length<=0){
@@ -473,7 +473,7 @@ function initHistoryChartEdad() {
             mes:$('#detalle-grafica-select-mes').val(),
             anio:$('#detalle-grafica-select-año').val()
         },
-        url: 'http://localhost:3000/chartEdad',
+        url: url.chartEdadHistory,
         success: function (data) {
             renderChart(data);
         }
@@ -531,7 +531,7 @@ function initHistoryChartSexo() {
             mes:$('#detalle-grafica-select-mes').val(),
             anio:$('#detalle-grafica-select-año').val()
         },
-        url: 'http://localhost:3000/chartSexo',
+        url: url.chartSexoHistory,
         success: function (data) {
             renderChart(data);
         }
@@ -589,7 +589,7 @@ function initHistoryChartEstadoCivil() {
             mes:$('#detalle-grafica-select-mes').val(),
             anio:$('#detalle-grafica-select-año').val()
         },
-        url: 'http://localhost:3000/chartEstadoCivil',
+        url: url.chartEstadoCivilHistory,
         success: function (data) {
             renderChart(data);
         }
@@ -647,7 +647,7 @@ function initHistoryChartEstudio() {
             mes:$('#detalle-grafica-select-mes').val(),
             anio:$('#detalle-grafica-select-año').val()
         },
-        url: 'http://localhost:3000/chartEstudio',
+        url: url.chartEstudioHistory,
         success: function (data) {
             renderChart(data);
         }
@@ -705,7 +705,7 @@ function initHistoryChartOcupacion() {
             mes:$('#detalle-grafica-select-mes').val(),
             anio:$('#detalle-grafica-select-año').val()
         },
-        url: 'http://localhost:3000/chartOcupacion',
+        url: url.chartOcupacionHistory,
         success: function (data) {
             renderChart(data);
         }
@@ -763,7 +763,7 @@ function initHistoryChartIngresos() {
             mes:$('#detalle-grafica-select-mes').val(),
             anio:$('#detalle-grafica-select-año').val()
         },
-        url: 'http://localhost:3000/chartIngresos',
+        url: url.chartIngresosHistory,
         success: function (data) {
             renderChart(data);
         }

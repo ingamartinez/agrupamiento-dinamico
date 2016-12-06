@@ -18,7 +18,7 @@ function initFirstMap() {
 
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/firstChart',
+        url: url.firstMapUbicacionGeografica,
         success: function (data) {
 
             for (var index in data){
@@ -68,7 +68,7 @@ function initSecondMap() {
 
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/secondChart',
+        url: url.secondMapUbicacionGeografica,
         success: function (data) {
 
 
@@ -119,7 +119,7 @@ function initHistoryMap() {
 
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/historyChart',
+        url: url.thirdMapUbicacionGeografica,
         data:{
             dia:$('#segmentos-select-dia').val(),
             mes:$('#segmentos-select-mes').val(),
